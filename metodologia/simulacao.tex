@@ -1,0 +1,379 @@
+\subsection{Simulação}
+\label{subsec:simulacao}
+
+O desenvolvimento da simulação foi dividido em três etapas. A primeira etapa é a construção do cenário com o modelo de movimento, veículos e infraestrutura. A segunda etapa é o desenvolvimento dos agentes de software e por último a fase de simulação. 
+
+A simulação foi desenvolvida utilizando o simulador GRUBiX e executada em um notebook com configuração detalhada na tabela \ref{tab:configuracaoNotebook}.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		Sistema Operacional & Ubuntu Linux 10.10              	\\ \hline
+		Processador         & Intel Core i7-2630QM (6M Cache) 	\\ \hline
+		Memória RAM         & 8GB SSD                         	\\ \hline
+		Disco Rígido 		& 120 GB SSD 						\\ \hline 
+	\end{tabular}
+	\caption{Configuração do notebook utilizado nas simulações}
+	\label{tab:configuracaoNotebook}
+\end{table}
+
+\subsubsection{Cenário}
+
+O cenário é uma cidade dividida em quadras seguindo o modelo de movimento Manhattan. Nessa cidade possuem veículos que percorrem as quadras. Alguns cruzamentos possuem uma infraestrutura e elas estão conectadas através de cabos. 
+
+A figura \ref{fig:modeloMovimentoManhattan} exemplifica com um esboço do cenário onde pode observar as ruas os veículos e a infraestrutura.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.7]{metodologia/figuras/modeloMovimentoManhattan.pdf}
+	\caption{Modelo de cidade utilizado.}
+	\label{fig:modeloMovimentoManhattan}
+\end{figure}
+
+Esse cenário é utilizado em todas simulações, no caso quando a infraestrutura não é utilizada elas são desativadas.
+
+O comprimento e a largura da região de simulação são levados em consideração na construção do cenário. As linhas horizontais e verticais são as ruas e o cruzamento delas são as quadras. Para obter a quantidade de ruas horizontais e verticais é utilizada as equações \ref{eq:equacaoQuantidadeRuasHorizontal} e \ref{eq:equacaoQuantidadeRuasVertical}.
+
+\begin{equation}
+	\label{eq:equacaoQuantidadeRuasHorizontal}
+	Q_{rh} = {A_{at} \over A_{aq}}
+\end{equation} 
+
+\begin{tabular}{ l c r} 
+	Onde:\\
+	Q\tiny rh \normalsize= quantidade de ruas na horizontal \\
+	A\tiny at \normalsize= altura total do cenário \\
+	A\tiny aq \normalsize= altura das quadras\\
+\end{tabular}
+
+\begin{equation} 
+	\label{eq:equacaoQuantidadeRuasVertical}
+	Q_{rv} = {L_{lt} \over L_{lq}}	
+\end{equation}
+
+\begin{tabular}{ l c r}
+	Onde:\\ 	
+	Q\tiny rh \normalsize= quantidade de ruas na vertical \\
+	L\tiny lt \normalsize= largura total do cenário \\
+	L\tiny lq \normalsize= largura das quadras\\
+\end{tabular}
+
+\paragraph{Veículos e infraestrutura}
+
+O agente necessita que os nós (veículos e a infraestrutura) tenham dois recursos fundamentais para o seu funcionamento que são a capacidade de comunicação e o agente deve conseguir executar suas instruções. Na simulação todos os nós possuem essa competência.
+
+Quando um agente chega em um nó, ele logo executa a suas instruções. No simulador o nó executa um evento para verificar se existe algum agente hospedado nele. Se existir o evento retorna um objeto que deve implementar a interface agente que se encontra no anexo (número). Com o objeto o nó executa o método \texttt{execute()}. O código do nó se encontra no anexo (número). 
+
+Todos os veículos e infraestruturas possuem o mesmo comportamento em relação ao agente, por outro lado eles possuem comportamentos diferentes em relação ao ambiente. Primeiramente os veículos possuem a capacidade de locomoção. Embora a infraestrutura não possui essa capacidade, todas elas estão conectadas, por outras palavras quando um agente está em uma infraestrutura ele não consegue se locomover porém consegue se comunicar com todas as outras infraestruturas espalhadas pelo cenário.  
+
+Ao iniciar a simulação os veículos e as infraestruturas são distribuídos entre os cruzamentos de maneira aleatória. 
+
+O algoritmo \ref{lst:algoritmoComportamentoNos} de locomoção leva em consideração a equação da reta que representa a rua. Isto significa que quando o veículo está em uma rua do tipo horizontal ele se movimenta em \emph{X} e quando estiver em uma rua do tipo vertical o veículo se movimenta em \emph{Y}. Para simular a velocidade quando um veículo entra em uma rua, o tipo dela é verificado e então soma ou subtrai um valor da posição atual dele.
+
+\begin{algorithm}
+	\algsetup{linenosize=\tiny}
+	\scriptsize
+	\Inicio{
+		$nos \gets pegarListaNos()$\;
+		$i \gets 0$\;
+		\Repita{i == nos.length}{
+			\uIf{nos[i].eVeiculo()}{
+				pontoProximoCruzamento = nos[i].pegarCruzamentoMaisProximo()\;
+				distancia = pontoProximoCruzamento.calcularDistancia(nos[i].posicao)\;
+				\uIf{distancia < nos[i].velocidade}{
+					nos[i].velocidade = distancia\;
+				}
+				\Else{
+					\uIf{distancia == 0}{
+						nos[i].mudarDirecao()\;
+					}
+					\Else{
+						nos[i].andar()\;	
+					}
+				}
+			}
+			\uIf{nos[i].possuiAgente()}{
+
+				nos[i].pegarAgente().execute()\;
+
+			}
+
+			i++\;
+		}	
+	}
+	\caption{Algoritmo movimento dos nós.}
+	\label{lst:algoritmoComportamentoNos}
+\end{algorithm}	
+
+Quando a velocidade do veículo é maior que a distância entre a posição atual dele e de um cruzamento, a sua velocidade diminui até chegar em zero, isso significa que o veículo chegou em um cruzamento, então o veículo deve decidir entre continuar, virar para esquerda, virar para direita ou voltar. Cada direção possui uma probabilidade como demonstra a tabela \ref{tab:probabilidadeEscolhaDirecao}.
+
+No caso da infraestrutura a velocidade é sempre zero, assim elas utilizam o mesmo algoritmo dos veículos porém não mudam de posição.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{ | l | c | r}
+		\hline
+		Frente & 50\%  \\ \hline
+		Direita & 20\% 	\\ \hline
+		Esquerda & 20\% \\ \hline
+		Voltar & 10\%   \\ \hline 
+	\end{tabular}
+	\caption{Probabilidade do veículo escolher uma direção}
+	\label{tab:probabilidadeEscolhaDirecao}
+\end{table}
+
+O algoritmo \ref{lst:algoritmoAproximacaoRuas} demonstra que em cada movimento do veículo são calculadas as distâncias entre a sua posição atual e de todos os cruzamentos contrários ao tipo de rua que o veículo está locomovendo, exemplificando, quando um veículo se locomove em uma rua horizontal, a cada movimento o algoritmo calcula a distâncias entre a posição do veículo e as ruas verticais.
+
+\begin{algorithm}
+	\algsetup{linenosize=\tiny}
+	\scriptsize
+	\Inicio{
+		\Entrada{O nó a ser testado}
+		$i \gets 0$\;
+		\uIf{no.tipoRua == horizontal}{
+			$y \gets no.posicao.getY()$\;
+			\Repita{$i < Q_{rh}$}{
+				$y_{rua} \gets A_{aq}(1 + i)$ \;
+				\uIf{$y_{rua} - y < no.velocidade$}{
+					retorna $y_{rua} - y$ \;
+				}
+				i++\;
+			}
+		}
+		\Else{
+			\uIf{no.tipoRua == vertical}{
+				$x \gets no.posicao.getX()$\;
+				\Repita{$i < Q_{rv}$}{
+					$x_{rua} \gets L_{lq}(1 + i)$ \;
+					\uIf{$x_{rua} - x < no.velocidade$}{
+						retorna $x_{ruax} - x$ \;
+					}
+				}
+				i++\;
+			}
+		}	
+	}
+	\caption{Algoritmo que identifica a aproximação com um cruzamento.}
+	\label{lst:algoritmoAproximacaoRuas}
+\end{algorithm}
+
+Para definir as ruas horizontais utiliza a formula \ref{eq:equacaoParaEncontraRuasHorizontais} da equação da reta quando a reta cruza o eixo \emph{Y}.
+
+\begin{equation} 
+	\label{eq:equacaoParaEncontraRuasHorizontais}
+	Y = A_{aq}(1+N_{horizontral})	
+\end{equation}
+
+\begin{tabular}{ l c r}
+	Onde:\\ 	
+	Y = posição da rua \\
+	A\tiny aq \normalsize= altura das quadras\\
+	N\tiny horizontal \normalsize=número de quadras onde $N_{horizontal} \in I,  0 \leq N_{horizontal} < Q_{rv}$\\
+\end{tabular}
+
+A formula \ref{eq:equacaoParaEncontraRuasVerticais} é utilizada para definir as ruas verticais. Igualando as duas equações é possível encontrar os cruzamentos.
+
+\begin{equation} 
+	\label{eq:equacaoParaEncontraRuasVerticais}
+	X = L_{lq}(1+N_{vertical})	
+\end{equation}
+
+\begin{tabular}{ l l}
+	Onde:\\ 	
+	X = posição da rua \\
+	L\tiny lq \normalsize= largura das quadras\\
+	N\tiny vertical \normalsize=número de quadras onde $N_{vertical} \in I,  0 \leq N_{vertical} < Q_{rv}$\\
+\end{tabular}
+
+\subsubsection{Agente de Software}
+
+Foi utilizado \cite{Freitas:2011} como referência para a construção do agente de software. A missão do agente é permanecer dentro de uma região (região alvo) no cenário. A região é definida por dois pontos, sendo um limite superior e outro o limite inferior, como demonstra a figura \ref{fig:regiaoAlvo}. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.7]{metodologia/figuras/regiaoAlvo.pdf}
+	\caption{Região Alvo.}
+	\label{fig:regiaoAlvo}
+\end{figure}
+
+Para a simulação foram criados dois tipos de agentes. O agente que deve se manter dentro da região alvo é o agente principal. O agente principal pode criar um tipo de agente mais simples, o \emph{mini-agente}, que é reponsável por buscar nós que possam propiciar ao agente principal maior possibilidade de finalizar a sua missão.
+
+Quando a simulação inicia é escolhido um nó aleatoriamente para receber um agente principal. Então o nó executa as instruções do agente. Para o funcionamento dessa arquitetura o agente precisa possuir uma interface onde o veículo consiga acessar as instruções do agente. O nós também deve ter uma interface onde o agente consiga acessar recursos necessários para o seu funcionamento. Nesse trabalho os nós possuem três recursos disponíveis.
+
+\begin{itemize}
+  \item Posição atual
+  \item Posição com o destino do nó
+  \item Comunicação com os nós vizinhos
+\end{itemize}	
+
+A figura \ref{fig:umlAtores} pode-se visualizar a arquitetura da simulações. Essa arquitetura permite adicionar mais atores na simulação. Por exemplo agentes como missões diferente ou até mesmo uma pessoa com algum equipamento que permita o transporte dos agentes, assim possibilitar ao agente acessar regiões antes impossíveis para acesso de veículos. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=2]{metodologia/figuras/umlAtores.pdf}
+	\caption{Diagrama UML com a relação entre as entidades.}
+	\label{fig:umlAtores}
+\end{figure}
+
+A missão do agente e alacançar a região alvo e permanecer nela, assim o agente deve conhece-la. Então a primeira ação do agente é solicitar ao nó onde ele esta hospedado a sua posição. Se o veículo estiver na região alvo o algoritmo termina a sua execução, nesse momento poderia realizar outras atividades como recolher dados ou disseminar propaganda.
+
+Caso a posição do nó não esta no interior da região alvo, o agente precisa procurar um hospede mais apropriado. Para isso é criado um segundo agente, mais simples que o primeiro, com a missão de procurar entre os nós vizinhos um mais apropriado. O algoritmo \ref{lst:algoritmoAgentePrincipal} descreve o funcionamento do agente principal.
+
+\begin{algorithm}
+	\algsetup{linenosize=\tiny}
+	\scriptsize
+	\Inicio{
+		
+		\Repita{$no.agentePrincipal \neq vazio$}{
+			$regiaoAlvo \gets pegarRegiaoAlvo()$\;
+			$posicaoNo \gets no.pegarPosicao()$\;
+			$destinoNo \gets no.pegarDestino()$\;
+		
+			\uIf{$posicaoNo \in regiaoAlvo$}{
+				
+				executarTarefasDaRegiaoAlvo()\;
+			
+			}
+			\Else{
+				
+				$miniAgente \gets criarMiniAgente(posicaoNo, destinoNo, regiaoAlvo)$\;
+				$mensagem \gets no.enviarMensagem()$\;
+				$reposta = escutarReposta(mensagem)$\;
+
+				\uIf{reposta = vazio}{
+					executarTarefasForaRegiaoAlvo()\;
+				}
+				\Else{
+					no.enviarMensagem(agentePrincipal, reposta.idImovelSelecionado())\;
+				}
+			}
+
+			hibernarPeriodo()\;	
+		}	
+	}
+	\caption{Algoritmo do Agente Principal.}
+	\label{lst:algoritmoAgentePrincipal}
+\end{algorithm}
+
+Cada nó vizinho recebe uma copia do \emph{mini-agente} e o executa. Na estrutura do \emph{mini-agente} contém a região alvo e a distância do destino com a região alvo. Esses dados são comparados pelo \emph{mini-agente} com os dados dos nós que o receberam. Caso algum nó tenha uma condição melhor que o nó onde o agente principal esta hospedado o \emph{mini-agente} envia um sinal avisando o agente principal para ele migrar. Após finalizar a missão o \emph{mini-agente} é descartado. O funcionamento do \emph{mini-agente} é reproduzido pelo algoritmo \ref{lst:algoritmoMiniAgente}.
+
+\begin{algorithm}
+	\algsetup{linenosize=\tiny}
+	\scriptsize
+	\Inicio{
+		\Entrada{posicaoNoHospedeiro, destinoNoHospedeiro, regiaoAlvo}
+		$distanciaRegiaoAlvoDestinoNoHospedeiro \gets regiaoAlvo.calcularDistancia(destinoHospedeiro)$\;
+		$distanciaRegiaoAlvoDestinoNo \gets regiaoAlvo.calcularDistancia(no.destino)$\;
+		
+		\uIf{$no.posicao \in regiaoAlvo$}{
+			no.enviarSinal(no.id)\;
+		}
+		\Else{
+
+			\uIf{$no.destino \in regiaoAlvo$}{
+				no.enviarSinal(no.id)\;
+			}
+			\Else{
+				\uIf{$distanciaRegiaoAlvoDestinoNoHospedeiro < distanciaRegiaoAlvoDestinoNo$}{
+					no.enviarSinal(no.id)\;
+				}
+			}
+		}
+
+		no.removerMiniAgente()\;s
+		
+	}
+	\caption{Algoritmo do Mini-agente.}
+	\label{lst:algoritmoMiniAgente}
+\end{algorithm}
+
+Durante a seleção três perguntas devem ser respondidas e se uma das respostas for afirmativa o \emph{mini-agente} envia o sinal para o agente principal migrar.
+
+\begin{enumerate}
+ \item Nó esta dentro da região alvo? Situação da figura \ref{fig:veiculoSelecionadoDentroRA}
+ \item Destino do nó é dentro da região alvo? Situação da figura \ref{fig:destinoVeiculoSelecionadoDentroRA}
+ \item Detino do nó é mais próximo da região alvo? Situação da figura \ref{fig:destinoVeiculoSelecionadoProximoRA}
+\end{enumerate}
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.7]{metodologia/figuras/legendaSelecaoMelhorVeiculo.pdf}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\begin{minipage}{0.33\textwidth}
+	  \centering
+	  \includegraphics[scale=0.5]{metodologia/figuras/veiculoSelecionadoDentroRA.pdf}
+	  \captionof{figure}{Primeiro caso.}
+	  \label{fig:veiculoSelecionadoDentroRA}
+	\end{minipage}%
+	\begin{minipage}{0.33\textwidth}
+	  \centering
+	  \includegraphics[scale=0.5]{metodologia/figuras/destinoVeiculoSelecionadoDentroRA.pdf}
+	  \captionof{figure}{Segundo caso.}
+	  \label{fig:destinoVeiculoSelecionadoDentroRA}
+	\end{minipage}
+	\begin{minipage}{0.33\textwidth}
+	  \centering
+	  \includegraphics[scale=0.5]{metodologia/figuras/destinoVeiculoSelecionadoProximoRA.pdf}
+	  \captionof{figure}{Terceiro caso.}
+	  \label{fig:destinoVeiculoSelecionadoProximoRA}
+	\end{minipage}
+\end{figure}
+
+
+
+O primeiro sinal que alcançar o agente principal, ele realiza a migração para o nó que enviou o sinal. Essa abordagem é utilizada por dois motivos.
+
+\begin{description}
+  \item[Primeiro:] O sinal contendo somente o identificador do nó possui poucos bytes.
+  \item[Segundo:] Elimina a necessidade do desenvolvimento um mecanismo para esperar que todos os \emph{mini-agente} executem a sua missão e só depois tomar a decisão de escolher o melhor nó.
+\end{description}
+
+Na simulação que a infraestrutura esta ativada, ela pode replicar o \emph{mini-agente} para todos os outros nós próximo as infraestruturas expalhadas pelo cenário. Assim aumentando a abrangência da busca. Se um nó distante for escolhido o agente principal pode utilizar a infraestrutura para alcança-lo. A figura \ref{fig:exemploComInfraestrutura} demonstra uma situação onde o \emph{mini-agente} encontra uma infraestrutura.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.5]{metodologia/figuras/exemploComInfraestrutura.pdf}
+	\caption{Exemplo com infraestrutura.}
+	\label{fig:exemploComInfraestrutura}
+\end{figure}
+
+Para não congestionar a rede, o agente principal deve evitar procurar novos nós por um período de tempo, durante esse período ele pode executar outras tarefas. Esse comportamento pode ser repetido infinitamente ou o agente pode ter um tempo determinado para executar a sua missão, ao fim desse tempo o agente deixa de existir.
+\subsubsection{Simulação}
+
+O objetivo da simulação é averiguar se a adição de uma infraestrutura melhora a locomoção dos agentes de software, assim favorendo que ele desempenhe a sua missão. Após o desenvolvimento e testes do cenário e de todos os atores da simulação é necessário configurar o simulador. As varáveis que o simulador GRUbiX utiliza são quantidade dos nós, alcance do sinal, largura e altura do cenário. 
+
+As váriaveis largura e altura do cenário são constantes em 120 metros, por outro lado a quantidade de nós e alcance de cada nó são variáveis. Essa variação permite simular o comportamento do agente em ambientes com alta e baixa densidade de veículos. Com a altura e largura do cenário é possível obter as quadras, elas possuem 10 metros de altura e 10 de largura, totalizando 144 quadras.
+
+Após configurar as variáveis de ambiente do GRUBiX é necessário configurar os atores da simulação. Os atores da simulação são os veículos, infraestruturas, agente principal e agente secundário. As variáveis dos nós que representam os veículos são o alcance e a velocidade. Os nós que representam as infraestruturas possuem o mesmo alcance dos veículos porém a velocidade é nula e elas também podem ser ativadas e desativadas. O agente principal só precisa conhecer a região alvo, onde o ponto superior S(80,100) e o inferior é I(100,80) com a escala em metros.
+
+Então foram modelados vinte e quatro situações para serem simuladas, elas consistem em doze com a infraestrutura esta ligada e outras doze com a infraestrutura desligada. A tabela \ref{tab:resumoConfiguracaoSimulacao} apresenta um resumo das configurações simuladas. 
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{| l | l | l | l | l | l | l | l | l |}
+		\hline
+		Infraestrutura &  \multicolumn{4}{|c|}{Ativada} & \multicolumn{4}{|c|}{Desativada} \\ \hline
+		Quantidade de nós & 25 & 50 & 75 & 100 & 25 & 50 & 75 & 100 \\ \hline
+		\multirow{3}{*}{Alcance dos nós (metros)} & 5 & 5 & 5 & 5 & 5 & 5 & 5 & 5 \\
+												  & 10 & 10 & 10 & 10 & 10 & 10 & 10 & 10 \\
+												  & 15 & 15 & 15 & 15 & 15 & 15 & 15 & 15 \\
+		\hline	
+	\end{tabular}
+	\caption{Resumo das configurações da simulação}
+	\label{tab:resumoConfiguracaoSimulacao}
+\end{table}
+
+O simulador permite uma visualização da simulação como apresenta a figura \ref{fig:visulizacaoSimulador}, nela as linhas representam as ruas, os pontos amarelos são os veículos e os vermelhos são a infraestrutura. Nas simulações quando a infraestrutura esta ativada, cinco nós que seriam veículos se tornam infraestrutura e a sua velocidade mantém nula. Quando a infraestrutura esta desligada os nós continuam sendo veículos. Exemplificando, com a infraestrutura ligada, quando existir vinte e cinco nós, cinco nós são infraestrutura e o restante veículos. Por outro lado, quando a infraestrutura estiver desligada todos os nós são veículos.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.4]{metodologia/figuras/simulacaoGrubix.png}
+	\caption{Visualização no simulador.}
+	\label{fig:visulizacaoSimulador}
+\end{figure}
+
+Foram realizadas mil simulações para cada uma das vinte e quatro situações totalizando vinte e quatro mil simulações. Para cada uma das vinte e quatro mil simulações foram armazenados o tempo de simulação e tempo que o agente permaneceu dentro da região alvo e foram armazenados em arquivos agrupados por situação simulada. Com esses dados é possivel obter a porcentagem de tempo que o agente principal permaneceu na região alvo e o impacto de cada varíavel tem no desempenho do agente em cumprir a missão.

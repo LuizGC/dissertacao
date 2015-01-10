@@ -1,0 +1,190 @@
+\documentclass{uflamon-22}          % classe base para a monografia
+
+
+%==============================================================================
+% Utilizacao de pacotes
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}         % usa fontes postscript com acentos
+%\usepackage{times}              % usa fonte times como default
+\usepackage[brazil]{babel}       % hifenização e títulos em português do
+
+\usepackage{amsmath}             % pacote da AMS para Matemática Avançada
+\usepackage{amssymb}             % símbolos extras da AMS
+\usepackage{latexsym}            % símbolos extras do LaTeX
+\usepackage{graphicx}            % para inserção de gráficos
+\usepackage{listings}            % para inserção de código
+\usepackage{fancyvrb}            % para inserção de saídas de comandos
+\usepackage{multirow}
+\usepackage{caption2}
+
+\usepackage[ruled,lined]{algorithm2e}
+\usepackage{algorithmic}
+
+\usepackage{colortbl} % frescuras em tabelas
+\newcolumntype{L}{|>{\columncolor[gray]{0.9}}l|} %multicolunas boiolas
+
+% cores para os links cruzados
+\usepackage{color}
+\definecolor{rltred}{rgb}{0.0,0,0}
+\definecolor{rltgreen}{rgb}{0,0.0,0}
+\definecolor{rltblue}{rgb}{0,0,0.0}
+
+\usepackage[colorlinks=true,
+	        urlcolor=rltblue,       % \href{...}{...} external (URL)
+   	     filecolor=rltgreen,     % \href{...} local file
+      	  linkcolor=rltred,       % \ref{...} and \pageref{...}
+     		  citecolor=rltgreen,
+    		  pdftitle={Dissertacao_Luiz_Costa},
+			  pdfauthor={Luiz_costa},
+           pdfsubject={},
+           pdfkeywords={}%
+]{hyperref} % para referência cruzadas
+%\usepackage{hyperref}            % para referência cruzadas
+%\usepackage{subfigure}           % figuras dentro de figuras
+
+
+
+
+            % remodelando o formato dos títulos de 
+                                 % tabelas e figuras
+
+% % configuração padrão do listings   
+ \lstset{
+    language=Java,
+    extendedchars=true,
+    tabsize=3,
+    basicstyle=\footnotesize\ttfamily,
+    stringstyle=\em,
+    showstringspaces=false 
+ }
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\usepackage[alf,abnt-etal-cite=3,abnt-etal-list=0,abnt-etal-text=emph, bibjustif]{abntcite}
+
+
+% redefinindo formatação de títulos de tabelas e figuras
+\renewcommand{\captionfont}{\small}
+\renewcommand{\captionlabelfont}{\small \bfseries}
+
+% para referências de acordo com a ABNT
+% precisa instalar o abntex antes!!!
+% http://abntex.codigolivre.org.br/
+% comente se pretende usar outro padrão
+%\
+
+%==============================================================================
+% para os fãs do Word, descomente as linhas abaixo
+%\sloppy 
+%\usepackage{identfirst} 
+
+
+
+%==============================================================================
+% definido comandos na monografia - não é necessário na sua monografia 
+% apenas para exemplificar a definição de novos comandos
+
+
+
+% Especificando hifenizações que por ventura LaTeX não saiba fazer
+% Por padrão 99,9% dos termos em português devem ser hifenizados corretamente.
+\hyphenation{}
+
+%==============================================================================
+% Dados da monografia, capa: autor, titulo, banca, etc... - SUBSTITUA DE ACORDO
+%==============================================================================
+\author{Luiz Augusto Guimarães Costa}
+\title{Análise da utilização de agente de software sensitivos a posição geográfica sobre Redes Veiculares Hibridas.}
+\date{2013}
+\tipo{Dissertação apresentada à Universidade Federal de Lavras,como parte das exigências do Programa de Pós-Graduação em Ciência da Computação, área de concentração em Ciência da Computação, para obtenção do título de Mestre}
+\areaconcentracao{Transporte de agentes;Comunicação Oportunistas; Agentes de Software; Redes Ad Hoc, VANET; MANET}
+\orientador{Wilian Soares Lacerda}
+%\coorientador{Tales Heimfarth} 
+%\coorientadordois{Prof. Tiag�o Meganha} % comente se n�o tiver coorientador
+\bancaum{}
+%\bancauminst{}
+%\bancadois{Wilian Soares Lacerda}
+%\bancadoisinst{}
+%\bancadois{Prof. Beltrano Tomazio Fiuxcrute} % comente se sua banca tiver s� um
+%professor
+%\bancatres{Fulanim de Sicrano}% comente se sua banca tiver só um professor
+\defesa{}
+\palchaves{Transporte de agentes;Comunicação Oportunistas; Agentes de Software; Redes Ad Hoc, VANET; MANET}
+\keywords{Agent Ferrying; Opportunistic Communication; Software Agents; Ad Hoc Networks; VANET; MANET}
+%==============================================================================
+
+%% dados para ficha catalográfica
+% primeiro autor
+%\fcautor{Costa, Luiz Augusto Guimarães}
+% autores, separados por vírgula
+%\fcautores{Luiz Augusto Guimarães Costa, Tales Heimfarth}
+% dados para ficha catalográfica conforme modelo da BC-UFLA 
+%\fccatalogacao{ }
+% classificação de acordo com a CDD, comente se não tiver isso.
+%\fcclasi{003.5}
+%\fcclasii{005.43}
+%\scalenumwidth{1.5} % Aumenta espaco do numero das secoes no sumario em escala
+% Aqui comeca o documento propriamente dito
+
+
+\begin{document}
+
+\maketitle
+
+%\pagestyle{empty}
+
+%\dedic{}
+
+%\thanks{}
+
+%\resumo{resumo em português}
+
+%\resumoingles{resumo em inglês}
+
+\listoffigures
+\listoftables
+\tableofcontents
+
+\pagestyle{ufla}
+
+%\include{introducao}
+%\include{referencial}
+\include{metodologia/metodologia}
+%\include{resultados}
+%\include{cronograma}
+%\include{conclusao}
+
+
+
+%==============================================================================
+% Incluindo bibliografia
+%\bibliographystyle{plain}             % estilo para labels em numeros
+%\bibliographystyle{alpha}             % estilo para labels em iniciais
+% \bibliographystyle{abnt-alf}           % estilo para referências usando
+%ABNT, 
+% %\bibliographystyle{apalike}
+% %\bibliographystyle{acm}
+% %\bibliographystyle{plain}
+% precisa instalar o abntex para usar!!!
+%\bibliographystyle{abnt-alf}
+%\addcontentsline{toc}{section}{REFER�NCIAS}
+%{\def\section*#1{}
+ %\renewcommand{\refname}{}
+ %\begin{center}{\normalsize\bfseries REFER�NCIAS}\end{center}
+%\bibliography{refbib}
+%}
+%inclui Referências Bibliográficas
+\bibliography{refbib}			% arquivo exemplo refbib.bib
+
+%\nocite{*}
+%==============================================================================
+% Incluindo anexos numerados com letras maiusculas.
+%\appendix
+%\include{apendice}
+
+%==============================================================================
+% Fim do texto
+\end{document}

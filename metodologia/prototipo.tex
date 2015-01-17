@@ -37,6 +37,8 @@ Ao iniciar o experimento é introduzido um agente em um dos nós. Então o agent
 
 O agente fica hospedado no smartphone, o arduino serve somente como interface entre o smartphone e o módulo Xbee. A comunicação entre o arduino e o smartphone acontece através do bluetooth. 
 
+Para sincronizar o relógio dos smartphones utilizados no experimento foi utilizado o aplicativo NTPSync (\cite{Ntpsync:2015}), que é um aplicativo simples para sincronizar o tempo. Manter o relógio sincronizado é importante para medir a latência com precisão. 
+
 O smartphone acolhe o agente por que possui um ecossistema mais rico do que o arduino, isto significa que o smartphone possui GPS, mais memória e outros recursos para que o agente possa desempenhar a sua missão, a Figura \ref{fig:arquiteturaPrototipoVeiculo} ilustra a estrutura do nó que atua nos veículos. 
 
 A Figura \ref{fig:arquiteturaPrototipoInfraestrtura} demonstra a arquitetura da infraestrutura que utiliza um Xbee e um XBee Explorer USB Adapter conectado em um notebook.

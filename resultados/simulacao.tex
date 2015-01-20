@@ -1,0 +1,91 @@
+	\subsection{Resultados da Simulação}
+	\label{subsec:resultadoSimulacao}
+
+	Diversas simulações foram realizadas no simulador GRUBiX, como descrito na Seção \ref{subsec:simulacao}. As simulação foram realizadas para avaliar o comportamento do agente em redes com diferentes níveis de densidade de nós e distância de comunicação dos nós. Outra situação simulada foi redes somente com veículos sem uma infraestrutura de apoio e outra híbrida.
+
+	Após realizar as simulações os dados foram organizados e analisados em três fases:
+
+	\begin{enumerate}
+		\item Resultados obtidos na rede sem infraestrutura
+		\item Resultados obtidos na rede híbrida
+		\item Comparação dos resultados obtidos nas duas situações
+	\end{enumerate} 
+
+	\subsubsection{Rede sem infraestrutura}
+
+	Os resultados obtidos da rede sem infraestrutura mostram que o raio de alcance e a quantidade dos nós afetam o desempenho do agente. A Figura \ref{fig:graficosSemTorres} demonstra a evolução do tempo que o agente permaneceu na região alvo com o aumento do raio e a quantidade de nós. 
+
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.34]{resultados/graficos/graficoSemTorres.pdf}
+		\caption{Resultados obtidos no cenários sem infraestrutura.}
+		\label{fig:graficosSemTorres}
+	\end{figure}
+
+	Na Tabela \ref{tab:estatiscaResultadosObtidos} é possível visualizar a média aritmética, o desvio padrão e a variância dos resultados obtidos. 
+
+	\begin{table}[!htb]
+	    \caption{Estátistica dos resultados obtidos}
+	    \label{tab:estatiscaResultadosObtidos}
+	    \centering
+	    \tiny
+	    \begin{minipage}{.5\linewidth}
+	      
+	      \centering
+	        \begin{tabular}{|c|c|c|c|}
+
+			\hline
+			\multicolumn{4}{|c|}{25 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
+			10 metros &	13,6767 & 2,2579 &	5,2766  \\ \hline
+			15 metros &	19,4554 & 1,7157 &	3,3192  \\ \hline
+			30 metros &	23,0320 & 0,8125 &	1,1901 \\ \hline
+
+			\multicolumn{4}{|c|}{} \\ \hline
+
+			\multicolumn{4}{|c|}{50 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
+			10 metros &	15,9696	& 1,4147 & 2,2524  \\ \hline
+			15 metros &	21,9589	& 1,4315 & 2,5295  \\ \hline
+			30 metros &	23,4864	& 1,1216 & 1,8084 \\ \hline
+
+		\end{tabular}
+	    \end{minipage}%
+	    \begin{minipage}{.5\linewidth}
+	      \centering
+	        \begin{tabular}{|c|c|c|c|}
+	        \hline
+			\multicolumn{4}{|c|}{75 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
+			10 metros &	17,8484 & 2,6340 & 7,2524  \\ \hline
+			15 metros &	23,4404 & 2,3308 & 5,9770  \\ \hline
+			30 metros &	28,0170 & 1,4151 & 2,7856 \\ \hline
+
+			\multicolumn{4}{|c|}{} \\ \hline
+
+
+			\multicolumn{4}{|c|}{100 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
+			10 metros &	18,4040	& 2,8614 & 8,5221  \\ \hline
+			15 metros &	26,0110	& 1,4059 & 2,6514  \\ \hline
+			30 metros &	33,4824	& 1,1032 & 2,3361 \\ \hline
+
+		\end{tabular}
+
+	    \end{minipage} 
+	\end{table}
+
+A cada vinte e cinco nós que são adicionados a rede a eficiência do agente aumenta em 11,53\%. Quando o aumento ocorre no raio do alcance do nó a melhora do desempenho é de 28,38\%. O aumento entre o alcance de 10 metros e 15 metros foi maior (37,88\%) que o aumento de 15 metros para 30 metros (18,87\%). 
+
+Isso ocorre por que com o aumento do raio somente uma pequena parte do aumento fica sobre a rua onde estão os veículos. A Figura \ref{fig:problemaDisperdicio} demonstra o problema, a região vermelha é a representação da região disperdiçada. Quando maior o raio de alcance do nó maior o disperdicio, essa é uma desvantagem em não usar rede híbrida. Por que dentro das quadras poderiam ter outros dispositivos que auxiliariam o agente, assim o agente poderia encontrar rotas através das quadras, aumentando a quantidade de rotas disponíveis para ele usar.
+
+\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.5]{resultados/figuras/problemaDisperdicio.pdf}
+		\caption{Exemplificação do disperdicio.}
+		\label{fig:problemaDisperdicio}
+	\end{figure}
+
+Como o veículo não é necessário realizar uma economia de energia, o alcance da comunicação dos nós podem ser alta, isso melhora o desempenho do agente. 
+
+Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nós hospedeiros, maior as chances dele cumprir a missão. A melhora em comparação entre a situação onde o agente tem a disposição o menor alcance e a menor densidade de veículospara a situação mais farta de recursos é de 144,81\%.   

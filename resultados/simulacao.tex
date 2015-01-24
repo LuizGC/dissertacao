@@ -92,9 +92,6 @@ Como o veículo não é necessário realizar uma economia de energia, o alcance 
 Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nós hospedeiros, maior as chances dele cumprir a missão. A melhora em comparação entre a situação onde o agente tem a disposição o menor alcance e a menor densidade de veículospara a situação mais farta de recursos é de 144,81\%.   
 
 
-
-
-
 \subsubsection{Rede com infraestrutura}
 
 	Os dados obtidos em uma rede veícular com infraestrutura demonstrou que a densidade e raio de alcance tem os mesmos impactos discutidos na Seção 
@@ -164,3 +161,44 @@ Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nó
 
 	    \end{minipage} 
 	\end{table}  
+
+
+\subsubsection{Comparando Redes com infraestrutura e Redes sem infraestrutura}
+
+Comparando o aumento da quantidade dos nós o agente permaneceu na região alvo em média um período 12,95\% maior na redes com infraestrutura. A Figura \ref{fig:comparacaoVariacaoNos} é foi obtida através das médias dos alcance dos nós. Com isso pode-se comparar o impacto da variação da quantidade de nós no desempenho do agente nos dois tipos de redes. 
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.34]{resultados/graficos/comparacaoVariacaoNos.pdf}
+	\caption{Comparação do impacto da variação da quantidade de nós nos dois tipos de redes}
+	\label{fig:comparacaoVariacaoNos}
+\end{figure}  
+
+Comparando o aumento do tempo que o agente permaneceu dentro da região alvo entre os dois tipos de redes apresentadas nesse trabalho, o experimetno demonstrou que a densidade de veículos tem um impacto no período que o agente permace na região alvo. Porém esse aumento tem um limiar que no cenário da simulação foi de 75 nós. Nesse cenário, na rede com infraestrutura o agente permaneceu na região alvo um período maior em 16,08\%. Isso ocorre por que em redes muito densas o agente possui uma gama maior de veículos para se locomover, assim diminui o ganho com o uso da infraestrutura para o agente percorrer grandes distâncias. A Figura \ref{fig:comparacaoMelhoriaComVariacaoNos} demonstra esse limiar.  
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.34]{resultados/graficos/comparacaoMelhoriaComVariacaoNos.pdf}
+	\caption{Melhoria da rede com infraestrutura em relação a rede sem infraestrutura com o aumento da quantidade de nós.}
+	\label{fig:comparacaoMelhoriaComVariacaoNos}
+\end{figure}
+
+Para avaliar o impacto do raio de alcance do nó foi realizado a média do tempo que o agente permaneceu na região alvo nas diferentes configurações de densidade, a Figura demonstra o resultado. Com o aumento do raio o agente permanceu na ragião alvo um tempo médio 12,95\% maior. A Figura \ref{fig:comparacaoVariacaoRaioAlcance} demonstra a comparação do tempo médio que o agente permaneceu na região alvo em relação ao raio de alcance.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.34]{resultados/graficos/comparacaoVariacaoRaioAlcance.pdf}
+	\caption{Comparação do impacto da variação do raio de alcance nos dois tipos de redes.}
+	\label{fig:comparacaoVariacaoRaioAlcance}
+\end{figure}
+
+Na Figura \ref{fig:comparacaoMelhoriaComVariacaoRaioAlcance} pode-se observar um comportamento semelhante ao caso do aumento de nós. Com o aumento do raio de alcance do nó, aumenta a quantindade de veículos que o agente pode escolher como hospedeiro. Assim o agente tem mais chances de encontrar um veículo que passe na região alvo. Quanto maior o raio de alcance do nó, menor é o impacto da infraestrutura em relação a rede sem ela.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[scale=0.34]{resultados/graficos/comparacaoMelhoriaComVariacaoRaioAlcance.pdf}
+	\caption{Melhoria da rede com infraestrutura em relação a rede sem infraestrutura com o aumento da quantidade de nós.}
+	\label{fig:comparacaoMelhoriaComVariacaoRaioAlcance}
+\end{figure}
+
+Observando os dois resultados, a infraestrutura auxilia o agente em chegar a região alvo quando até um limite de veículos e raio de alcance. Porém em redes onde a densidade é alta e o raio também, a infraestrutura não promove um grande aumento de desempenho.

@@ -1,0 +1,41 @@
+\section{Introdução}
+
+Comunicação sem fio permite novas aplicações que exploram a transferência de dados entre nós móveis. Redes oportunistas são redes onde a comunicação não é continua, isto é, nunca deve existir um caminho pré-definido entre o nó de origem e o nó destino. Isto proporciona suporte para os cenários em que os dados são transportados a partir de uma fonte para um destino através dos nós móveis que levam fisicamente os dados de um lugar para outro, com ou sem auxilio de uma infraestrutura fixa. Essas características podem ocorrer em uma série de aplicações tolerantes ao atraso \cite{Fall:2003}. Entretanto, esse paradigma exige um maior número de nós para auxiliar o transporte dos dados, assim melhorando a probabilidade deles serem eventualmente entregues. Neste ponto, a utilização dos nós mais promissores para transportar os dados proporcionam uma maior probabilidade desses dados alcançarem o seu destino \cite{Freitas:2013}.
+
+O uso de dispositivos móveis na formação de uma rede \emph{ad hoc} abriu um novo horizonte para exploração de técnicas de comunicação oportunísticas. Um exemplo de comunicação oportunística acontece quando dados são transportados por nós móveis de uma origem para um destino utilizando-se a movimentação física do nó. As conexões temporárias entre nós que estão próximos geograficamente durante um pequeno intervalo de tempo, são explorados sem a existência de uma rede conectada constantemente. Esse tipo de comunicação exige da aplicação tolerância a atrasos consideráveis e desconexões frequentes. Muitos cenários reais podem fazer uso dessa abordagem.
+
+Sistemas que exploram esse tipo de comunicação exigem a existência de um grande número de nós, de forma a aumentar a probabilidade de sucesso na entrega dos dados. Outra questão importante neste tipo de rede é a utilização de informações baseada no contexto que permitem uma decisão eficiente para transporte de dados entre os nós. 
+
+O uso de agentes móveis representa uma tecnologia promissora \cite{Urra:2010} para tratar os problemas aqui apresentados. O seu uso permite o encapsulamento de inteligência na rede, melhorando as decisões que serão responsáveis pelo trafego de dados \cite{Freitas:2010}. Essa abordagem oferece flexibilidade para elaborar estratégias de transporte dos dados, assim permitindo enfrentar possíveis problemas encontrados de forma mais ágil. 
+
+O transporte de agente utiliza o mesmo principio de transporte de dados, mas em vez de apenas dados, um agente também transfere o seu comportamento. A vantagem de usar agentes para transportar dados é que eles não são limitados a um protocolo de roteamento instalados nos nós, mas como parte de sua própria inteligência, eles podem fornecer a sua própria estratégia para mover através dos nós na rede. Isto é a responsabilidade da decisão do dado migrar ou não de um nó para outro é delegada ao agente, assim aumentando a capacidade de contornar as adversidades proporcionadas por ambientes instáveis.
+
+Com essa abordagens as redes veículares deixam de ser construídas para uma determinada finalidade, deixando para o software do agente definir a finalidade. Assim a mesma rede onde existe um ciclista com equipamentos que permitem o envio de agentes que avisam os veículos de sua presença pode ser utilizada por um hotel que oferece quartos para motoristas cansados. 
+
+A versatilidade do agente aumenta se os veículos possuirem sensores que possam captar a situação do condutor do veículo, por exemplo se ele esta embriagado avisar a policia. Outra aplicação é em caso de acidente o próprio veículo cria agentes que avisam os veículos vizinhos, cria outro agente para buscar um veículo da policia nas proximidades e outro para buscar uma ambulância mais próximos.   
+
+\subsection{Objetivo}
+
+O objetivo principal desse projeto é a exploração de agentes de software para encaminhar dados utilizando informação geográficos sobre uma VANET. Pretende-se estudar o impacto da utilização da infraestrutura fixa sobre o agente de software.
+
+Como um segundo objetivo é avaliar o padrão ZigBee quanto aos requisitos necessários para a criação de uma VANET capaz de transportar agentes. 
+
+Serão propostos duas redes veiculares \emph{ad hoc} (VANET), uma rede híbrida e outra somente com veículos. Os agente serão desenvolvidos no ambiente de simulação GRUBIX, desenvolvido pelo Grupo de Redes Ubíquas do Departamento de Ciência da Computação da Universidade Federal de Lavras, baseado no simulador Shox \cite{Lessmann:2008}.
+
+Para realizar a avaliação dos agentes serão desenvolvidos dois cenários. O primeiro uma rede somente com veículos e o segundo uma rede híbrida. Ambos os cenários serão examidados em uma cidade com quadras do mesmo tamanho, essa cidade é baseada no modelo de movimento Manhattan \cite{Bai:2003}. O desenvolvimento dos dois cenários servirá para análise do desempenho dos agentes em ambientesdiferentes e com distribuição dos veículos. Cada veículo presente nos cenários dispõe de um dispositivo de comunicação sem fio e um GPS (\emph{Global Positioning System}) que serviram de infraestrutura para o agente. 
+
+Após a realização das simulações será desenvolvido um equipamento capaz de hospedar o agente. Também esse equipamente será avaliado nos dois cenários simulados.  
+
+\subsection{Motivação}
+
+Segundo a \cite{oms:2013}, 1,24 milhões de pessoas morreram no trânsito em todo mundo em 2010. Um estudo \cite{Cintra:2012} aponta que o trânsito caótico da cidade de São Paulo impõe um prejuízo de R\$ 50 bilhões por ano ao Brasil. A redes sem fio \emph{ad hoc} proporcionam um novo horizonte para a melhoria das condições do trânsito em grandes metrópoles. Essas redes podem recolher dados em tempo real sobre o trânsito, assim proporcionando aos condutores e autoridades informações importantes para favorecer a segurança no trânsito.  	
+
+Entre várias aplicações possíveis em VANET, as que proveem maior segurança do trânsito são as que recebem maior atenção. Alguns situações de riscos poderiam ser evitados caso os motoristas tivessem informações de eventos ou situações do trânsito em tempo real.
+
+Na literatura existem poucos trabalho práticos em VANET se comparado com os trabalhos envolvendo simulações. Isto acontece por que existem poucos equipamentos e o custo deles são elevados. Atualmente existe um padrão de redes veiculares IEEE 802.11p \cite{Jiang:2008}. O padrão 802.11p pode ser atualizado assim que as pesquisas avançarem. Então o Zigbee pode ser uma nova direção para o desenvolvimento dessas redes \cite{Bhargav:2013}. 
+
+As redes veiculares é um tópico em constantes pesquisa pelo setor público e privado. Sua grande flexibilidade e suporte a várias aplicações para melhorar a qualidade de vida nos grandes centros urbanos foram atributos que motivaram o desenvolvimento deste trabalho.
+
+\subsection{Estruturado Trabalho}
+
+Este trabalho está organizado da seguinte forma: os conceitos sobre redes veiculares, características, conceitos sobre agentes de software e modelos de movimentos são mostrados no capítulo 2. A metodologia de desenvolvimento da pesquisa é apresentada no capítulo 3.

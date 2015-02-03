@@ -18,18 +18,6 @@
   Keywords                 = {AODV; DSDV; DSR; Manhattan model; connectivity graph property; freeway model; geographic restriction; group mobility; mobile ad hoc network; parameterized mobility model impact; protocol independent metric; random waypoint; routing protocol performance; scenario mobility characteristics; spatial dependence; temporal dependence; test-suite scenario; wireless mobile node; ad hoc networks; mobile radio; routing protocols;}
 }
 
-@InProceedings{Bhargav:2013,
-  Title                    = {Zigbee based VANETs for accident rescue missions in 3G WCDMA networks},
-  Author                   = {Bhargav, K.R.K. and Singhal, R.},
-  Booktitle                = {Global Humanitarian Technology Conference: South Asia Satellite (GHTC-SAS), 2013 IEEE},
-  Year                     = {2013},
-  Month                    = {Aug},
-  Pages                    = {310-313},
-
-  Doi                      = {10.1109/GHTC-SAS.2013.6629936},
-  Keywords                 = {3G mobile communication;Zigbee;access protocols;cellular radio;code division multiple access;emergency management;road accidents;vehicular ad hoc networks;3G WCDMA cellular network setup;MAC layer;Zigbee based VANET;accident rescue mission;emergency response station;emergency response system;network architecture;third generation wideband CDMA;transport layer;vehicular accident;vehicular ad-hoc network;Base stations;Mobile communication;Multiaccess communication;Spread spectrum communication;Vehicles;Vehicular ad hoc networks;Zigbee;3G;Emergency networks;VANET;Vehicular rescue;WCDMA;Zigbee}
-}
-
 @InProceedings{Burgess:2006,
   Title                    = {MaxProp: Routing for Vehicle-Based Disruption-Tolerant Networks},
   Author                   = {Burgess, J. and Gallagher, B. and Jensen, D. and Levine, B. N.},
@@ -486,9 +474,9 @@
 
 @Other{Ntpsync:2015,
   Bdsk-url-1               = {https://play.google.com/store/apps/details?id=org.ntpsync},
-  Date-added               = {2013-05-26 11:26:26 +0000},
-  Date-modified            = {2013-05-26 11:26:39 +0000},
-  Url                      = {https://play.google.com/store/apps/details?id=org.ntpsync},
-  Year                     = {2013}
+  Date-added               = {2015-01-14 11:26:26 +0000},
+  Date-modified            = {2015-01-14 11:26:39 +0000},
+  Url                      = {https://play.google.com/store/apps/details?id=org.ntpsync}
 }
+
 

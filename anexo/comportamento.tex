@@ -1,0 +1,58 @@
+\begin{lstlisting}
+
+public class TaxiLayer extends ApplicationLayer {
+
+	private Agent agent;
+	
+	public Agent getAgent(){
+		return this.agent;
+	}
+	
+	public void setAgent(Agent agent){
+		this.agent = agent;
+	}
+
+
+	@Override
+	public int getPacketTypeCount() {
+		return 1;
+	}
+	
+	@Override
+	public void processEvent(TrafficGeneration tg) {
+	}
+
+	@Override
+	public void lowerSAP(Packet packet) throws LayerException {
+
+		if (packet.getSender() != sender) {
+			((PacketTask) packet).execute(this);
+		}
+		
+	}
+
+	protected void processEvent(StartSimulation start) {
+		if (this.node.getId().asInt() == CityStartPositions.getStartNode()){
+			this.agent = new Agent(new TargetRegion());
+		}
+	
+		TargetRegionCheckerWUC wuc = new TargetRegionCheckerWUC(sender, 1000);
+		this.sendEventSelf(wuc);
+	}
+
+	protected void processEvent(Finalize finalize) {
+		if (this.node.getId().asInt() == 1)
+			GetStatistics.getInstance().generateStatistics();
+	}
+
+	public void processWakeUpCall(WakeUpCall wuc) {
+		try{
+			if(!(wuc instanceof DecisionEvent) || this.getAgent() != null)
+				((WakeUpCallTask) wuc).execute(this);
+		}catch (Exception e) {
+			//System.out.println("Pacotes com problemas = " + wuc.getReceiver() + " qual o problema " + wuc.getClass().getCanonicalName());
+			//e.printStackTrace();
+		}
+	}
+}
+\end{lstlisting}

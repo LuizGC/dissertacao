@@ -1,4 +1,4 @@
-\documentclass{uflamon-22}          % classe base para a monografia
+\documentclass{ufla}          % classe base para a monografia
 
 
 %==============================================================================
@@ -15,7 +15,6 @@
 \usepackage{listings}            % para inserção de código
 \usepackage{fancyvrb}            % para inserção de saídas de comandos
 \usepackage{multirow}
-\usepackage{caption2}
 \usepackage{booktabs}
 
 \usepackage[ruled,lined]{algorithm2e}
@@ -47,17 +46,33 @@
 
 
             % remodelando o formato dos títulos de 
-                                 % tabelas e figuras
+                                 % tabelas e figuras\
 
 % % configuração padrão do listings   
- \lstset{
-    language=Java,
-    extendedchars=true,
-    tabsize=3,
-    basicstyle=\footnotesize\ttfamily,
-    stringstyle=\em,
-    showstringspaces=false 
- }
+% Definindo novas cores
+\definecolor{verde}{rgb}{0.25,0.5,0.35}
+\definecolor{jpurple}{rgb}{0.5,0,0.35}
+% Configurando layout para mostrar codigos Java
+\usepackage{listings}
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small, 
+  keywordstyle=\color{jpurple}\bfseries,
+  stringstyle=\color{red},
+  commentstyle=\color{verde},
+  morecomment=[s][\color{blue}]{/**}{*/},
+  extendedchars=true, 
+  showspaces=false, 
+  showstringspaces=false, 
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true, 
+  backgroundcolor=\color{cyan!10}, 
+  breakautoindent=true, 
+  captionpos=b,
+  xleftmargin=0pt,
+  tabsize=4
+}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
@@ -147,9 +162,9 @@ Agradeço ao pessoal do LEMAF por ter me apoiado quando eu precisei sair para es
 
 Agradeço ao pessoal da GT4W por ter deixado eu terminar o mestrado sem me preocupar.}
 
-%\resumo{resumo em português}
+\resumo{As redes veiculares \emph{ad hoc} (\emph{Vehicular Ad Hoc Networks} - VANETs) são redes com alta mobilidade. Os veículos podem se comunicar um com os outros ou com infraestrutura na estrada. Comunicação sem fio permite novas aplicações que exploram a transferência de dados entre nós móveis. Redes oportunistas são redes onde a comunicação não é continua, isto é, nunca deve existir um caminho pré-definido entre o nó de origem e o nó destino. Isto proporciona suporte para os cenários em que os dados são transportados a partir de uma fonte para um destino através dos nós móveis que levam fisicamente os dados de um lugar para outro, com ou sem auxilio de uma infraestrutura fixa. Essas redes exigem a existência de um grande número de nós, de forma a aumentar a probabilidade de sucesso na entrega dos dados. Outra questão importante neste tipo de rede é a utilização de informações baseada no contexto que permitem uma decisão eficiente para transporte de dados entre os nós. O uso de agentes móveis representa uma tecnologia promissora para tratar os problemas aqui apresentados. O seu uso permite o encapsulamento de inteligência na rede, melhorando as decisões que serão responsáveis pelo trafego de dados. Essa abordagem oferece flexibilidade para elaborar estratégias de transporte dos dados, assim permitindo enfrentar possíveis problemas encontrados de forma mais ágil. A versatilidade do agente aumenta se os veículos possuirem sensores que possam captar a situação do condutor do veículo, por exemplo se ele esta embriagado avisar a policia. Outra aplicação é em caso de acidente o próprio veículo cria agentes que avisam os veículos vizinhos, cria outro agente para buscar um veículo da policia nas proximidades e outro para buscar uma ambulância mais próximos. O objetivo deste trabalho é analisar o impacto da infraestrutura no auxilio do agentes móvel a atingir seu objetivo. Outro objetivo e verificar o uso do ZigBee em redes veiculares para transportar agentes.}
 
-%\resumoingles{resumo em inglês}
+\resumoingles{Vehicular Ad Hoc Networks - VANETs are networks with high mobility. The vehicles can communicate with each other or with the road infrastructure. Wireless communication enables new applications that exploit the data transfer between mobile nodes . Opportunistic networks are networks where communication is not continuous, that is, should never be a predefined path between the source node and the destination node. This provides support for scenarios where data is transported from a source to a destination via the mobile nodes to physically carry data from one place to another, with or without the aid of a fixed infrastructure. Such networks require the existence of a large number of nodes, so as to increase the probability of successful delivery of data. Another important issue in this type of network is the use of information based on context that enable effective decision to transport data between nodes. The use of mobile agents is a promising technology to address the problems presented here. It allows for the encapsulation of intelligence in the network, improving the decisions that will be responsible for data traffic. This approach offers flexibility to develop data transport strategies, thus enabling face possible problems encountered in a more agile way. The agent's versatility increases if the vehicles possess sensors that can capture the state of the driver of the vehicle, for example if he is drunk notify the police. Another application is in an accident the vehicle itself creates agents that warn neighboring vehicles, creates another agent to find a nearby police vehicle and another to seek a closer ambulance. The objective of this study is to analyze the impact of infrastructure on the help of mobile agents to achieve your goal. Another objective and check the ZigBee use in vehicular networks to transport agents.}
 
 \listoffigures
 \listoftables
@@ -166,31 +181,32 @@ Agradeço ao pessoal da GT4W por ter deixado eu terminar o mestrado sem me preoc
 
 
 
-%==============================================================================
-% Incluindo bibliografia
-%\bibliographystyle{plain}             % estilo para labels em numeros
-%\bibliographystyle{alpha}             % estilo para labels em iniciais
-% \bibliographystyle{abnt-alf}           % estilo para referências usando
-%ABNT, 
-% %\bibliographystyle{apalike}
-% %\bibliographystyle{acm}
-% %\bibliographystyle{plain}
-% precisa instalar o abntex para usar!!!
-%\bibliographystyle{abnt-alf}
-%\addcontentsline{toc}{section}{REFER�NCIAS}
-%{\def\section*#1{}
- %\renewcommand{\refname}{}
- %\begin{center}{\normalsize\bfseries REFER�NCIAS}\end{center}
-%\bibliography{refbib}
-%}
 %inclui Referências Bibliográficas
 \bibliography{refbib}			% arquivo exemplo refbib.bib
 
 %\nocite{*}
 %==============================================================================
-% Incluindo anexos numerados com letras maiusculas.
-%\appendix
-%\include{apendice}
+%Incluindo anexos numerados com letras maiusculas.
+   
+\newpage 
+
+\appendix
+
+\section{Classe Java do Agente.}
+\label{app:agente}
+\input{anexo/agente}
+
+\newpage 
+
+\section{Classe Java do modelo de comportamento do nó.}
+\label{app:comportamentoNo}
+\input{anexo/comportamento}
+
+\newpage 
+
+\section{Classe Java do modelo de movimento}
+\label{app:movimento}
+\input{anexo/movimento}
 
 %==============================================================================
 % Fim do texto

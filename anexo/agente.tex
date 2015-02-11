@@ -1,0 +1,28 @@
+\begin{lstlisting}
+
+
+
+public class SoftwareAgent implements Agent{
+	
+	private TargetRegion target;
+	
+	public Agent(TargetRegion t) {
+		target = t;
+	}
+	
+	public TargetRegion getTarget() {
+		return target;
+	}
+
+
+	@Override
+	public void execute(TaxiLayer taxi) {
+		GetDestinationCommand command = new GetDestinationCommand(taxi.getNode().getId().asInt());
+		command.send();
+		if(taxi.getAgent() == null)
+			taxi.sendEventSelf(new CollisionAvoidanceWUC(taxi.getSender(), Math.random() * 5,
+				new ReturnDestinyPacket(taxi.getSender(), this.getSender().getId(), command.getGPS(), taxi.getNode().getPosition())));
+	}		
+	
+}
+\end{lstlisting}

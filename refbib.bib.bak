@@ -512,19 +512,19 @@
   Year                     = {2015}
 }
 
+@Other{ZigBeeAlliance:2015,
+  Title                    = {ZigBeeAlliance},
+  Month                    = jan,
+  Owner                    = {ZigBeeAlliance},
+  Url                      = {http://zigbee.org/},
+  Year                     = {2015}
+}
+
 @Other{Android:2013,
   Bdsk-url-1               = {http://www.android.com},
   Date-added               = {2013-05-24 16:05:14 +0000},
   Date-modified            = {2013-05-26 11:26:59 +0000},
   Url                      = {http://www.android.com},
-  Year                     = {2013}
-}
-
-@Other{ZigBeeAlliance:2015,
-  Bdsk-url-1               = {http://zigbee.org/},
-  Date-added               = {2013-05-26 11:26:26 +0000},
-  Date-modified            = {2013-05-26 11:26:39 +0000},
-  Url                      = {http://zigbee.org/},
   Year                     = {2013}
 }
 

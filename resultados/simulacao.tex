@@ -1,32 +1,32 @@
-	\subsection{Resultados da Simulação}
-	\label{subsec:resultadoSimulacao}
+\subsection{Resultados da Simulação}
+\label{subsec:resultadoSimulacao}
 
-	Diversas simulações foram realizadas no simulador GRUBiX, como descrito na Seção \ref{subsec:simulacao}. As simulação foram realizadas para avaliar o comportamento do agente em redes com diferentes níveis de densidade de nós e distância de comunicação dos nós. Outra situação simulada foi redes somente com veículos sem uma infraestrutura de apoio e outra híbrida.
+	Diversas simulações foram realizadas no simulador GRUBiX, como descrito na Seção \ref{subsec:simulacao}. As simulações foram realizadas para avaliar o comportamento do agente em redes com diferentes níveis de densidade de nós e distância de comunicação dos nós. Também foram simuladas redes somente com veículos sem uma infraestrutura de apoio e outra híbrida.
 
-	Após realizar as simulações os dados foram organizados e analisados em três fases:
+	Após realizar as simulações, os dados foram organizados e analisados em três fases:
 
 	\begin{enumerate}
-		\item Resultados obtidos na rede sem infraestrutura
-		\item Resultados obtidos na rede híbrida
-		\item Comparação dos resultados obtidos nas duas situações
+		\item Resultados obtidos na rede sem infraestrutura.
+		\item Resultados obtidos na rede híbrida.
+		\item Comparação dos resultados obtidos nas duas situações.
 	\end{enumerate} 
 
 	\subsubsection{Rede sem infraestrutura}
 	\label{subsubsection:redeSemInfraestruturaResultadoDiscucao}
 
-	Os resultados obtidos da rede sem infraestrutura mostram que o raio de alcance e a quantidade dos nós afetam o desempenho do agente. A Figura \ref{fig:graficosSemTorres} demonstra a evolução do tempo que o agente permaneceu na região alvo com o aumento do raio e a quantidade de nós. 
+	Os resultados obtidos da rede sem infraestrutura mostram que o raio de alcance e a quantidade dos nós afetam o desempenho do agente. A Figura \ref{fig:graficosSemTorres} demonstra a evolução do tempo que o agente permaneceu na região alvo (desempenho do agente) com o aumento do raio e a quantidade de nós. 
 
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[scale=0.34]{resultados/graficos/graficoSemTorres.pdf}
-		\caption{Resultados obtidos no cenários sem infraestrutura.}
+		\caption{Resultados obtidos nos cenários sem infraestrutura.}
 		\label{fig:graficosSemTorres}
 	\end{figure}
 
 	Na Tabela \ref{tab:estatiscaResultadosObtidosSemInfraestrutura} é possível visualizar a média aritmética, o desvio padrão e a variância dos resultados obtidos. 
 
 	\begin{table}[!htb]
-	    \caption{Estátistica dos resultados obtidos}
+	    \caption{Estátistica dos resultados obtidos relativos a situação sem infraestrutura.}
 	    \label{tab:estatiscaResultadosObtidosSemInfraestrutura}
 	    \centering
 	    \tiny
@@ -38,17 +38,17 @@
 			\hline
 			\multicolumn{4}{|c|}{25 nós} \\ \hline
 			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	13,6767 & 2,2579 &	5,2766  \\ \hline
-			15 metros &	19,4554 & 1,7157 &	3,3192  \\ \hline
-			30 metros &	23,0320 & 0,8125 &	1,1901 \\ \hline
+			10 metros &	13,67 & 2,25 &	5,27  \\ \hline
+			15 metros &	19,45 & 1,71 &	3,31  \\ \hline
+			30 metros &	23,03 & 0,81 &	1,19 \\ \hline
 
 			\multicolumn{4}{|c|}{} \\ \hline
 
 			\multicolumn{4}{|c|}{50 nós} \\ \hline
 			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	15,9696	& 1,4147 & 2,2524  \\ \hline
-			15 metros &	21,9589	& 1,4315 & 2,5295  \\ \hline
-			30 metros &	23,4864	& 1,1216 & 1,8084 \\ \hline
+			10 metros &	15,96	& 1,41 & 2,25  \\ \hline
+			15 metros &	21,95	& 1,43 & 2,52  \\ \hline
+			30 metros &	23,48	& 1,12 & 1,80 \\ \hline
 
 		\end{tabular}
 	    \end{minipage}%
@@ -58,27 +58,27 @@
 	        \hline
 			\multicolumn{4}{|c|}{75 nós} \\ \hline
 			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	17,8484 & 2,6340 & 7,2524  \\ \hline
-			15 metros &	23,4404 & 2,3308 & 5,9770  \\ \hline
-			30 metros &	28,0170 & 1,4151 & 2,7856 \\ \hline
+			10 metros &	17,84 & 2,63 & 7,25  \\ \hline
+			15 metros &	23,44 & 2,33 & 5,97  \\ \hline
+			30 metros &	28,01 & 1,41 & 2,78 \\ \hline
 
 			\multicolumn{4}{|c|}{} \\ \hline
 
 
 			\multicolumn{4}{|c|}{100 nós} \\ \hline
 			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	18,4040	& 2,8614 & 8,5221  \\ \hline
-			15 metros &	26,0110	& 1,4059 & 2,6514  \\ \hline
-			30 metros &	33,4824	& 1,1032 & 2,3361 \\ \hline
+			10 metros &	18,40	& 2,86 & 8,52  \\ \hline
+			15 metros &	26,01	& 1,40 & 2,65  \\ \hline
+			30 metros &	33,48	& 1,10 & 2,33 \\ \hline
 
 		\end{tabular}
 
 	    \end{minipage} 
 	\end{table}
 
-A cada vinte e cinco nós que são adicionados a rede a eficiência do agente aumenta em 11,53\%. Quando o aumento ocorre no raio do alcance do nó a melhora do desempenho é de 28,38\%. O aumento entre o alcance de 10 metros e 15 metros foi maior (37,88\%) que o aumento de 15 metros para 30 metros (18,87\%). 
+Conforme o gráfico, a cada vinte e cinco nós que são adicionados a rede, a eficiência do agente aumenta. Quando o aumento ocorre no raio do alcance do nó, a melhora do desempenho também é perceptível. 
 
-Isso ocorre por que com o aumento do raio somente uma pequena parte do aumento fica sobre a rua onde estão os veículos. A Figura \ref{fig:problemaDisperdicio} demonstra o problema, a região vermelha é a representação da região onde o sinal é disperdiçado. Quando maior o raio de alcance do nó maior o disperdicio, essa é uma desvantagem em não usar rede híbrida. Por que dentro das quadras poderiam ter outros dispositivos que auxiliariam o agente, assim o agente poderia encontrar rotas através das quadras, aumentando a quantidade de rotas disponíveis para ele usar.
+O aumento da eficiência do nó quando comparando o aumento do alcance de 10 metros para 15 metros foi maior que o aumento do alcance de 15 metros para 30 metros. Isso ocorre porque com o aumento do raio somente uma pequena parte do aumento da área coberta fica sobre a rua onde estão os veículos. A Figura \ref{fig:problemaDisperdicio} demonstra o problema. A região cinza representa as quadras e a região vermelha é a representação do sinal disperdiçado. Quanto maior o raio de alcance do nó, maior o disperdicio. Essa é uma desvantagem em não usar rede híbrida porque dentro das quadras poderiam haver outros dispositivos que auxiliariam o agente. Assim o agente poderia encontrar rotas através das quadras, aumentando a quantidade de rotas disponíveis para ele usar.%Isso é algo que foi notado no experimento procurando referencia. 
 
 \begin{figure}[htbp]
 		\centering
@@ -87,15 +87,15 @@ Isso ocorre por que com o aumento do raio somente uma pequena parte do aumento f
 		\label{fig:problemaDisperdicio}
 	\end{figure}
 
-Como o veículo não é necessário realizar uma economia de energia, o alcance da comunicação dos nós podem ser alta, isso melhora o desempenho do agente. 
 
-Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nós hospedeiros, maior as chances dele cumprir a missão. A melhora em comparação entre a situação onde o agente tem a disposição o menor alcance e a menor densidade de veículospara a situação mais farta de recursos é de 144,81\%.   
+A princípio, não é necessário se preocupar com a economia de energia do transmissor/receptor instalado em cada veívulo. Assim, o alcance da comunicação dos nós pode ser alta, melhorando o desempenho do agente. 
+
+Quanto maior é a quantidade de veículos (nós) que formam a rede, maior é a probabilidade do agente alcançar novos nós hospedeiros, e assim maiores são as chances dele conseguir se manter na região alvo. A melhora de desempenho do agente comparando entre a situação onde o agente tem a disposição o menor alcance e a menor densidade de veículos (25 nós e 10 metros) para a situação mais farta de recursos (100 nós e 30 metros) é de 145\% aproximadamente.   
 
 
 \subsubsection{Rede com infraestrutura}
 
-	Os dados obtidos em uma rede veícular com infraestrutura demonstrou que a densidade e raio de alcance tem os mesmos impactos discutidos na Seção 
-	\ref{subsubsection:redeSemInfraestruturaResultadoDiscucao}.
+	Os resultados obtidos em uma rede veIcular com infraestrutura demonstrou que a densidade e raio de alcance tem os mesmos impactos discutidos na Seção \ref{subsubsection:redeSemInfraestruturaResultadoDiscucao}.
 
 	Na Figura \ref{fig:graficosComTorres} demonstra a melhoria de desempenho do agente ao aumentar a densidade dos nós e o raio de alcance. A melhoria de desempenho do agente na configuração com a menor quantidade de recursos para a rede com a configuração com maior quantidade de recursos foi de 114,43\%.   
  
@@ -107,7 +107,7 @@ Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nó
 		\label{fig:graficosComTorres}
 	\end{figure}
 
-	Para cada vinte e cinco nós que entram na rede, o agente melhora o seu desempenho em 14,56\%. O aumento do raio do nó causa um impacto de 20,94\%. Com o aumento do raio e a densidade causa impacto diretamente na quantidade de veículos que o agente tem acesso.
+	Para cada vinte e cinco nós que entram na rede, o agente melhora o seu desempenho (tempo médio dentro da região alvo) significativamente. O aumento do raio de alcance de cada nó também aumenta o desempenho do agente. O aumento combinado do raio e a densidade causa um impacto diretamente na quantidade de veículos que o agente tem acesso, aumentando o seu desempenho.
 
 	Na Tabela \ref{tab:estatiscaResultadosObtidosComInfraestrutura} é possível visualizar a média aritmética, o desvio padrão e a variância dos resultados obtidos.
 
@@ -119,43 +119,43 @@ Quanto maior é a quantidade de veículos o agente alcançar ao buscar novos nó
 	    \begin{minipage}{.5\linewidth}
 	      
 	      \centering
-	        \begin{tabular}{|c|c|c|c|}
+	        \begin{tabular}{|c|c|c|}
 
 			\hline
-			\multicolumn{4}{|c|}{25 nós} \\ \hline
-			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	15,8585 & 1,4024 & 2,2208  \\ \hline
-			15 metros &	20,5735 & 1,6888 & 3,2724  \\ \hline
-			30 metros &	23,4544 & 1,1172 & 1,7970 \\ \hline
+			\multicolumn{3}{|c|}{25 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão   \\ \hline
+			10 metros &	15,85 & 1,40   \\ \hline
+			15 metros &	20,57 & 1,68   \\ \hline
+			30 metros &	23,45 & 1,11  \\ \hline
 
-			\multicolumn{4}{|c|}{} \\ \hline
+			\multicolumn{3}{|c|}{} \\ \hline
 
-			\multicolumn{4}{|c|}{50 nós} \\ \hline
-			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	18,1818 & 1,4338 & 2,3783  \\ \hline
-			15 metros &	24,4884 & 1,1216 & 1,8565  \\ \hline
-			30 metros &	26,0580 & 1,4123 & 2,6716 \\ \hline
+			\multicolumn{3}{|c|}{50 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão   \\ \hline
+			10 metros &	18,18 & 1,43   \\ \hline
+			15 metros &	24,48 & 1,12  \\ \hline
+			30 metros &	26,05 & 1,41  \\ \hline
 
 		\end{tabular}
 	    \end{minipage}%
 	    \begin{minipage}{.5\linewidth}
 	      \centering
-	        \begin{tabular}{|c|c|c|c|}
+	        \begin{tabular}{|c|c|c|}
 	        \hline
-			\multicolumn{4}{|c|}{75 nós} \\ \hline
-			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	20,9494 & 2,0501 & 4,6422  \\ \hline
-			15 metros &	27,5075 & 1,6945 & 3,6252  \\ \hline
-			30 metros &	31,9959 & 1,3899 & 2,9536 \\ \hline
+			\multicolumn{3}{|c|}{75 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão   \\ \hline
+			10 metros &	20,94 & 2,05   \\ \hline
+			15 metros &	27,50 & 1,69   \\ \hline
+			30 metros &	31,99 & 1,38 \\ \hline
 
-			\multicolumn{4}{|c|}{} \\ \hline
+			\multicolumn{3}{|c|}{} \\ \hline
 
 
-			\multicolumn{4}{|c|}{100 nós} \\ \hline
-			Alcance   & média aritmetica &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	24,5151 & 1,1021 & 1,8119  \\ \hline
-			15 metros &	31,4934 & 1,1350 & 2,2770  \\ \hline
-			30 metros &	34,0060 & 1,4240 & 3,1813 \\ \hline
+			\multicolumn{3}{|c|}{100 nós} \\ \hline
+			Alcance   & média aritmetica &	Desvio Padrão   \\ \hline
+			10 metros &	24,51 & 1,10   \\ \hline
+			15 metros &	31,49 & 1,13   \\ \hline
+			30 metros &	34,00 & 1,42  \\ \hline
 
 		\end{tabular}
 
@@ -174,7 +174,9 @@ Comparando o aumento da quantidade dos nós o agente permaneceu na região alvo 
 	\label{fig:comparacaoVariacaoNos}
 \end{figure}  
 
-Comparando o aumento do tempo que o agente permaneceu dentro da região alvo entre os dois tipos de redes apresentadas nesse trabalho, o experimetno demonstrou que a densidade de veículos tem um impacto no período que o agente permace na região alvo. Porém esse aumento tem um limiar que no cenário da simulação foi de 75 nós. Nesse cenário, na rede com infraestrutura o agente permaneceu na região alvo um período maior em 16,08\%. Isso ocorre por que em redes muito densas o agente possui uma gama maior de veículos para se locomover, assim diminui o ganho com o uso da infraestrutura para o agente percorrer grandes distâncias. A Figura \ref{fig:comparacaoMelhoriaComVariacaoNos} demonstra esse limiar.  
+Comparando o aumento do tempo que o agente permaneceu dentro da região alvo entre os dois tipos de redes apresentadas nesse trabalho, o experimetno demonstrou que a densidade de veículos tem um impacto no período que o agente permanece na região alvo. Porém esse aumento tem um limiar que no cenário da simulação foi de 75 nós. Nesse cenário, na rede com infraestrutura o agente permaneceu na região alvo um período maior em 16,08\%. Isso ocorre por que em redes muito densas o agente possui uma gama maior de veículos para se locomover, assim diminui o ganho com o uso da infraestrutura para o agente percorrer grandes distâncias. A Figura \ref{fig:comparacaoMelhoriaComVariacaoNos} demonstra esse limiar.  
+%EXPLICAR MELHOR ESTE PARAGRAFO ACIMA. O RAIO DO NÓ FOI CONGELADO PARA FAZER ESTA ANALISE? EM QUE VALOR? TALVEZ FOSSE MELHOR CALCULAR O GANHO DE DESENPENHO EM CADA SITUACAO (DIFERENCA).
+
 
 \begin{figure}[htbp]
 	\centering
@@ -183,7 +185,7 @@ Comparando o aumento do tempo que o agente permaneceu dentro da região alvo ent
 	\label{fig:comparacaoMelhoriaComVariacaoNos}
 \end{figure}
 
-Para avaliar o impacto do raio de alcance do nó foi realizado a média do tempo que o agente permaneceu na região alvo nas diferentes configurações de densidade, a Figura demonstra o resultado. Com o aumento do raio o agente permanceu na ragião alvo um tempo médio 12,95\% maior. A Figura \ref{fig:comparacaoVariacaoRaioAlcance} demonstra a comparação do tempo médio que o agente permaneceu na região alvo em relação ao raio de alcance.
+Para avaliar o impacto do raio de alcance do nó foi realizado a média do tempo que o agente permaneceu na região alvo nas diferentes configurações de densidade. Com o aumento do raio o agente permanceu na ragião alvo um tempo médio 12,95\% maior. A Figura \ref{fig:comparacaoVariacaoRaioAlcance} demonstra a comparação do tempo médio que o agente permaneceu na região alvo em relação ao raio de alcance.
 
 \begin{figure}[htbp]
 	\centering
@@ -192,7 +194,7 @@ Para avaliar o impacto do raio de alcance do nó foi realizado a média do tempo
 	\label{fig:comparacaoVariacaoRaioAlcance}
 \end{figure}
 
-Na Figura \ref{fig:comparacaoMelhoriaComVariacaoRaioAlcance} pode-se observar um comportamento semelhante ao caso do aumento de nós. Com o aumento do raio de alcance do nó, aumenta a quantindade de veículos que o agente pode escolher como hospedeiro. Assim o agente tem mais chances de encontrar um veículo que passe na região alvo. Quanto maior o raio de alcance do nó, menor é o impacto da infraestrutura em relação a rede sem ela.
+Na Figura \ref{fig:comparacaoMelhoriaComVariacaoRaioAlcance} pode-se observar um comportamento semelhante ao caso do aumento de nós. Com o aumento do raio de alcance do nó, aumenta a quantidade de veículos que o agente pode escolher como hospedeiro. Assim o agente tem mais chances de encontrar um veículo que passe na região alvo. Quanto maior o raio de alcance do nó, menor é o impacto da infraestrutura em relação a rede sem ela.
 
 \begin{figure}[htbp]
 	\centering
@@ -201,4 +203,4 @@ Na Figura \ref{fig:comparacaoMelhoriaComVariacaoRaioAlcance} pode-se observar um
 	\label{fig:comparacaoMelhoriaComVariacaoRaioAlcance}
 \end{figure}
 
-Observando os dois resultados, a infraestrutura auxilia o agente em chegar a região alvo quando até um limite de veículos e raio de alcance. Porém em redes onde a densidade é alta e o raio também, a infraestrutura não promove um grande aumento de desempenho.
+Observando os dois resultados, a infraestrutura auxilia o agente em chegar a região alvo até um limite de veículos e raio de alcance. Porém, em redes onde a densidade é alta e o raio também, a infraestrutura não promove um grande aumento de desempenho.

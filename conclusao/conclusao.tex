@@ -1,11 +1,19 @@
 \section{Conclusão}
 
-As redes veiculares tem um potencial muito amplo para realização de pesquisas. Nas pesquisas é de fundamental importancia conhecer o tráfego de dados em aplicações de segurança no trânsito. As redes veiculares em sua configuração híbridas até o momento não foram totalmente exploradas e podem ser aprimoradas.
+A área de redes veiculares tem um potencial muito amplo para realização de pesquisas.  As redes veiculares em sua configuração híbrida, até o momento, não foram totalmente exploradas e podem ser aprimoradas.
 
-Os agentes móveis adicionam as redes veiculares maior flexibilidade para trafegar dados. Através do agente os dados podem ser transportados levando em consideração o contexto, assim o agente decide se deve ou não migrar para outro nó. Outro ponto importante é que o agente pode decidir dependendo do contexto em usar outras formas de comunicação. 
+Os agentes móveis adicionam às redes veiculares maior flexibilidade para trafegar dados. Através do agente os dados podem ser transportados levando em consideração o contexto, assim o agente decide se deve ou não migrar para outro nó. Outro ponto importante é que o agente pode decidir, dependendo do contexto, em usar outras formas de comunicação. 
 
-Nas simulações é possivel observar quea infraestrutura fixa melhora a performance do agente em comparação a uma rede sem a infraestrutura. Porém o impacto da infraestrutura em redes densas é menor. Essa informação é importante para auxiliar na escolha das regiões onde serão colocadas as infraestrturas. Regiões mais densas de veículos podem receber menos infraestruturas e regiões menos densas recebem mais infraestrutura. 
+Nas simulações realizadas neste trabalho é possivel observar que a rede com infraestrutura melhora o desempenho do agente em comparação a uma rede sem infraestrutura. Porém, o impacto da infraestrutura em redes densas é menor. Essa informação é importante para auxiliar na escolha das regiões onde serão colocadas as infraestrturas. Regiões mais densas de veículos podem receber menos infraestruturas e regiões menos densas recebem mais infraestrutura. 
 
-No experimento com o protótipo, o ZigBee se mostrou viável para transportar agente de software simples. Porém os agentes possuem uma complexidade maior que as informações transportadas no trabalho \cite{santanaMestrado:2014} que obteve latência média de 64 ms, nessa trabalho a latência média foi de 124ms com infraestrutura e 126 sem infraestrutura. Assim a latência se mostrou alta para aplicações anti-colisão entre veículos.
+No experimento com o protótipo desenvolvido, o ZigBee se mostrou viável para transportar agente de software simples. Porém, os agentes possuem uma complexidade maior que as informações transportadas no trabalho \cite{santanaMestrado:2014} que obteve latência média de 64ms. No presente trabalho, a latência média foi de 124ms com infraestrutura e 126ms sem infraestrutura. Assim a latência se mostrou alta para aplicações críticas como, por exemplo, alerta de colisão entre veículos.
 
-A taxa de perda do agente com infraestrutura foi de 10,23\% sendo menor que a taxa de 21,43\% obtida pela experimento sem infraestrutura. Essa informação mostra que o uso de infraestrutura como suporte na migração ajuda a diminuir a perda do agente.
+A taxa de perda do agente com infraestrutura foi de aproximadamente 10\% no experimentos com o protótipo, enquanto que sem infraestrutura foi obtido aproximadamente 21\% de perda. Essa informação mostra que o uso de infraestrutura como suporte na migração ajuda significativamente a diminuir a perda do agente.
+
+
+\subsection{Proposta de continuidade}
+Como proposta de continuidade para este trabalho, pode-se adicionar mais dispositivos de hardware ao protótipo para que o agente móvel possa extrair mais informações do ambiente para realizar a sua missão.
+
+Outro trabalho a realizar é comparar o padrão ZigBee com o padrão 802.11p para transporte de agentes. Nesse trabalho é importante observar a latência e a perda do agente para comparar qual forma de comunicação é mais eficaz.
+
+Desenvolver mecanismos mais eficientes para recuperar os agentes danificados durante a migração seria outra proposta de continuidade dos estudos para diminuir a taxa de perda do agente. 

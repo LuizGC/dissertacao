@@ -50,8 +50,8 @@ public class TaxiLayer extends ApplicationLayer {
 			if(!(wuc instanceof DecisionEvent) || this.getAgent() != null)
 				((WakeUpCallTask) wuc).execute(this);
 		}catch (Exception e) {
-			//System.out.println("Pacotes com problemas = " + wuc.getReceiver() + " qual o problema " + wuc.getClass().getCanonicalName());
-			//e.printStackTrace();
+			System.out.println("Pacotes com problemas = " + wuc.getReceiver() + " qual o problema " + wuc.getClass().getCanonicalName());
+			e.printStackTrace();
 		}
 	}
 }

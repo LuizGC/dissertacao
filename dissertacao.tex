@@ -113,17 +113,17 @@
 % Dados da monografia, capa: autor, titulo, banca, etc... - SUBSTITUA DE ACORDO
 %==============================================================================
 \author{Luiz Augusto Guimarães Costa}
-\title{Análise da utilização de agente de software sobre Redes Veiculares Híbridas utilizando Zigbee}
+\title{Análise da utilização de agente de software sobre Redes Veiculares Híbridas utilizando ZigBee}
 \date{2015}
 \tipo{Dissertação apresentada à Universidade Federal de Lavras,como parte das exigências do Programa de Pós-Graduação em Ciência da Computação, área de concentração em Ciência da Computação, para obtenção do título de Mestre}
 \areaconcentracao{Transporte de agentes;Comunicação Oportunistas; Agentes de Software; Redes Ad Hoc, VANET; MANET}
 \orientador{Wilian Soares Lacerda}
 %\coorientador{Tales Heimfarth} 
 %\coorientadordois{Prof. Tiag�o Meganha} % comente se n�o tiver coorientador
-\bancaum{}
-%\bancauminst{}
-%\bancadois{Wilian Soares Lacerda}
-%\bancadoisinst{}
+\bancaum{Luiz Henrique Andrade Correia}
+\bancauminst{Universidade Federal de Lavras}
+\bancadois{Daniel Fernandes Macedo}
+\bancadoisinst{Universidade Federal de Minas Gerais}
 %\bancadois{Prof. Beltrano Tomazio Fiuxcrute} % comente se sua banca tiver s� um
 %professor
 %\bancatres{Fulanim de Sicrano}% comente se sua banca tiver só um professor
@@ -134,7 +134,7 @@
 
 %% dados para ficha catalográfica
 % primeiro autor
-%\fcautor{Costa, Luiz Augusto Guimarães}
+\fcautor{Costa, Luiz Augusto Guimarães}
 % autores, separados por vírgula
 %\fcautores{Luiz Augusto Guimarães Costa, Tales Heimfarth}
 % dados para ficha catalográfica conforme modelo da BC-UFLA 
@@ -142,8 +142,8 @@
 % classificação de acordo com a CDD, comente se não tiver isso.
 %\fcclasi{003.5}
 %\fcclasii{005.43}
-%\scalenumwidth{1.5} % Aumenta espaco do numero das secoes no sumario em escala
-% Aqui comeca o documento propriamente dito
+\scalenumwidth{1.5} % Aumenta espaco do numero das secoes no sumario em escala
+
 
 
 \begin{document}
@@ -156,11 +156,11 @@
 
 \thanks{Agradeço a minha familia por me ajudar com motivação para finalizar esse trabalho. 
 
-Agradeço ao meu orietandor Wilian e ao professor Luiz Henrique.
+Agradeço ao meu orientador Wilian e ao professor Luiz Henrique.
 
-Agradeço ao pessoal do LEMAF por ter me apoiado quando eu precisei sair para estudar. 
+Agradeço ao pessoal do LEMAF por ter me apoiado quando eu precisei de tempo para estudar. 
 
-Agradeço ao pessoal da GT4W por ter deixado eu terminar o mestrado sem me preocupar.}
+Agradeço ao pessoal da GT4W por ter permitido que eu realiza-se o mestrado sem me preocupar.}
 
 \resumo{As redes veiculares \emph{ad hoc} (\emph{Vehicular Ad Hoc Networks} - VANETs) são redes com alta mobilidade. Os veículos podem se comunicar um com os outros ou com infraestrutura na estrada. Comunicação sem fio permite novas aplicações que exploram a transferência de dados entre nós móveis. Redes oportunistas são redes onde a comunicação não é continua, isto é, nunca deve existir um caminho pré-definido entre o nó de origem e o nó destino. Isto proporciona suporte para os cenários em que os dados são transportados a partir de uma fonte para um destino através dos nós móveis que levam fisicamente os dados de um lugar para outro, com ou sem auxilio de uma infraestrutura fixa. Essas redes exigem a existência de um grande número de nós, de forma a aumentar a probabilidade de sucesso na entrega dos dados. Outra questão importante neste tipo de rede é a utilização de informações baseada no contexto que permitem uma decisão eficiente para transporte de dados entre os nós. O uso de agentes móveis representa uma tecnologia promissora para tratar os problemas aqui apresentados. O seu uso permite o encapsulamento de inteligência na rede, melhorando as decisões que serão responsáveis pelo trafego de dados. Essa abordagem oferece flexibilidade para elaborar estratégias de transporte dos dados, assim permitindo enfrentar possíveis problemas encontrados de forma mais ágil. A versatilidade do agente aumenta se os veículos possuirem sensores que possam captar a situação do condutor do veículo, por exemplo se ele esta embriagado avisar a policia. Outra aplicação é em caso de acidente o próprio veículo cria agentes que avisam os veículos vizinhos, cria outro agente para buscar um veículo da policia nas proximidades e outro para buscar uma ambulância mais próximos. O objetivo deste trabalho é analisar o impacto da infraestrutura no auxilio do agentes móvel a atingir seu objetivo. Outro objetivo e verificar o uso do ZigBee em redes veiculares para transportar agentes.}
 
@@ -183,9 +183,7 @@ Agradeço ao pessoal da GT4W por ter deixado eu terminar o mestrado sem me preoc
 %inclui Referências Bibliográficas
 \bibliography{refbib}			% arquivo exemplo refbib.bib
 
-%\nocite{*}
-%==============================================================================
-%Incluindo anexos numerados com letras maiusculas.
+
    
 \newpage 
 

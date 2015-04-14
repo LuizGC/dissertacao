@@ -1,5 +1,5 @@
-\subsection{Simulação}
-\label{subsec:simulacao}
+\section{Metodologia da Simulação}
+\label{sec:simulacao}
 
 O desenvolvimento da simulação foi dividido em três etapas. A primeira etapa é a construção do cenário com o modelo de movimento, veículos e infraestrutura. A segunda etapa é o desenvolvimento dos agentes de software, e por último a fase de simulação. 
 
@@ -19,7 +19,7 @@ A simulação foi desenvolvida utilizando o simulador GRUBiX e executada em um n
 	\label{tab:configuracaoNotebook}
 \end{table}
 
-\subsubsection{Cenário}
+\subsection{Desenvolvendo o Cenário}
 
 O cenário é uma cidade dividida em quadras seguindo o modelo de movimento \emph{Manhattan}. Nessa cidade possuem veículos que percorrem as quadras. Alguns cruzamentos possuem uma infraestrutura e elas estão conectadas através de cabos. 
 
@@ -325,8 +325,6 @@ Na simulação que a infraestrutura está ativada, ela pode replicar o \emph{min
 \end{figure}
 
 Para não congestionar a rede, o agente principal deve evitar procurar novos nós por um período de tempo, e durante esse período ele pode executar outras tarefas. Esse comportamento pode ser repetido infinitamente ou o agente pode ter um tempo determinado para executar a sua missão. Ao fim desse tempo, o agente deixa de existir.
-
-\subsubsection{Realizar simulação}
 
 O objetivo da simulação é averiguar se a adição de uma infraestrutura melhora a locomoção dos agentes de software, favorecendo que ele desempenhe a sua missão. Após o desenvolvimento e testes do cenário e de todos os atores da simulação é necessário configurar o simulador. As varáveis que o simulador GRUbiX utiliza são: quantidade dos nós, alcance do sinal, largura e altura do cenário. 
 

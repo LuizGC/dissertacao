@@ -1,0 +1,18 @@
+\section{Metodologia da Simulação}
+\label{sec:metodologiaSimulacao}
+
+Após examinar diversos artigos e trabalhos científicos que abordaram redes veiculares, não foi identificado um padrão metodológico para a avaliação dessas redes. Normalmente, cada autor realiza a metodologia de acordo com as variáveis que se deseja avaliar. 
+
+O uso de simulação justificou-se pela complexidade em se aplicar as técnicas propostas em uma grande quantidade de veículos, questões financeiras e relacionadas ao tempo para se testar o algoritmo em uma grande variedade de cenários também foram avaliadas.
+
+\input{metodologia/simulacao}
+
+
+\section{Metodologia da contrução do Protótipo}
+\label{sec:metodologiaPrototipo}
+Para comprovar a possibilidade da construção de um sistema baseado em agentes de software sobre uma VANET, foi elaborado um protótipo utilizando o trabalho \cite{santanaMestrado:2014} como referência e um cenário foi desenvolvido para avaliação.
+
+A seção \ref{subsec:simulacao} descreve as etapas para a elaboração da simulação, onde será encontrado informações sobre o simulador, a estrutura do agente de software e o cenário utilizado para a simulação. As informações sobre o protótipo e o experimento em campo são descritas na seção \ref{subsec:prototipoExperimento}.
+
+\input{metodologia/prototipo}
+

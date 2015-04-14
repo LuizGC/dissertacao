@@ -1,11 +1,11 @@
-\subsection{Protótipo e experimento em campo}
-\label{subsec:prototipoExperimento}
+\section{Metodologia do Protótipo}
+\label{sec:prototipoExperimento}
 
 Um protótipo foi desenvolvido para avaliar o uso dos agentes fora do ambiente virtual. O objetivo desta fase é recolher dados sobre a latência e taxa de perda do agente. A latência é importante para alguns tipos aplicações como por exemplo para detectar colisão \cite{santanaMestrado:2014}. Assim, essas informações são importantes para identificar quais os tipos de aplicações os agentes são melhores empregados. Uma rede para ser bem sucedida com a utilização dos agentes de software necessita mante-los ativo até o fim de sua missão.A Figura \ref{fig:noInstaladoVeiculo} pode-se visualizar um nó instalado em um veículo.
 
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.06]{metodologia/figuras/noInstaladoVeiculo.jpg}
+	\includegraphics[scale=0.2]{metodologia/figuras/noInstaladoVeiculo.jpg}
 	\caption{Nó instalado em um veículo.}
 	\label{fig:noInstaladoVeiculo}
 \end{figure}
@@ -33,7 +33,7 @@ O experimento utiliza três nós, onde dois nós são para os veículos e um des
 
 Ao iniciar o experimento é introduzido um agente em um dos nós. Então o agente deve migrar sempre que encontrar um outro nó.
 
-\subsubsection{Arquitetura do nó}
+\subsection{Arquitetura do nó}
 
 A Figura \ref{fig:arquiteturaPrototipoInfraestrtura} demonstra a arquitetura da infraestrutura que utiliza um Xbee e um XBee Explorer USB Adapter conectado em um notebook.
 
@@ -69,7 +69,7 @@ Para hospedar o agente foi desenvolvido um aplicativo Android, esse aplicativo f
 
 Esse aplicativo também realiza a coleta dos dados em arquivo. Os dados coletados são a hora que o agente migrou, a hora que recebeu um agente em milisegundo. Então para calcular a latência é a subtração da hora de quando o novo hospede recebeu o agente e a hora que o agente iniciou a migração no antigo hospede.
 
-\subsubsection{Agente}
+\subsection{Agente}
 
 A missão do agente neste experimento é migrar sempre que encontrar um novo nó. O agente deve transportar as instruções, o identificador da migração e a posição do antigo nó hospede para o novo nó. As instruções utilizadas pelo agente são apresentadas na Tabela \ref{tab:instrucoesAgente}, elas são formadas por uma letra maiúscula, uma sequência de três letras minúscula e um número, esse padrão é utilizado pelo mecanismo de validação e recuperação. Para delimitar o fim da instrução é utilizado o caractere de ponto e vírgula (\emph{;}). O identificador da migração é um número que serve para auxiliar no cálculo de latência. Assim com o identificador é possível encontrar a hora que o agente migrou e a hora que o agente foi recebido por completo no hospedeiro em dois arquivos diferentes. Sempre antes do agente migrar o identificador de migração é incrementado.  
 
@@ -95,7 +95,7 @@ O agente é formado por dois elementos, como demonstra a Figura \ref{fig:estrutu
 	\label{fig:estruturaAgente}
 \end{figure}
 
-\subsubsection{Mecanismo validação e recuperação}
+\subsection{Mecanismo validação e recuperação}
 
 Após um nó receber o último colchete (\emph{]}) ou 500 ms com um agente incompleto o mecanismo de validação e recuperação é ativado. A principal função deste mecanismo é tentar recuperar o agente danificado e se não conseguir descarta-lo. 
 
@@ -162,7 +162,7 @@ Para tentar recuperar o corpo, primeiro verifica se existe um caractere de colch
 	\label{fig:exemploCodigoAgente}
 \end{figure}
 
-\subsubsection{Trajeto e cenário}
+\subsection{Trajeto e cenário}
 
 Como trajeto é utilizada a avenida norte que está localizada no campus da Universidade Federal de Lavras. O trajeto pode ser visualizado na Figura \ref{fig:trajetoExperimento}. Nesse trajeot o veículo percorre 344,45 metros. 
 

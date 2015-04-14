@@ -72,23 +72,6 @@ A utilização de um sistema multi-agente sobre VANETs é interessante por que a
 
 Essas características de sistemas multi-agentes citadas anteriormente tornam a utilização das VANETs mais flexível.  
 
-\subsection{Roteamento geográfico}
-
-Roteamento Geográfico é um conceito de roteamento que se baseia em informações de posição geográfica. Essa organização é propostas para redes sem fio e com base no principio de que a fonte envia uma mensagem para a posição geográfica do destino em vez de usar o endereço de rede \cite{Shu:2010}. 
-
-A utilização de roteamento geográfico em um VANET é sugerida em \cite{Freitas:2011} partindo do principio que o veiculo é maior e possui mais energia facilitando o transporte de um GPS.
-
-
-Uma importante exigência para a implementação do roteamento geográfico é que cada nó possa determinar sua própria localização e que o emissor esteja ciente da localização do destino. Essas informações são importantes para que os dados transmitidos possam chegar ao destino \cite{Guise:2011}.
-
-Segundo \cite{Taylor:2006}, existem duas técnicas para realizar um roteamento geográfico: 
-
-\begin{itemize}
-\item \textbf{Encaminhamento Geográfico}: é um método de roteamento que utiliza a distância geográfica entre dois nós. Os nós simplesmente transmitem pacotes de dados para o seu vizinho mais próximo até o local de destino especificado no pacote. No entanto, este esquema simples pode levar a zonas onde o nó não tem conectividade para região do alvo. 
-
-\item \textbf{Roteamento por Perímetro}: é usado para rotear pacotes em torno das janelas encontrados na rede, assim utilizando alguns algoritmos de grafos para poder contornar essas janelas e atingir os nós que estão no destino.
-
-\end{itemize}
 
 \subsection{Modelo de Movimentos}
 
@@ -109,7 +92,7 @@ O autor \cite{Sun:2002} sugere duas abordagens para construir um modelo de movim
 
 \subsection{Simulador GRUBiX}
 
-Para realização das simulações deste trabalho foi utilizado o simulador GRUBiX, que é um simulador \emph{open source} desenvolvimento na Universidade Federal de Lavras. Ele pode ser encontrado no endereço \url{http://sourceforge.net/projects/grubix/}. Este simulador é uma variação do projeto SHOX \cite{Lessmann:2008}. Assim como o SHOX, o simulador GRUBiX caracteriza-se como um ambiente de simulação orientado a eventos. De forma simplificada, em um ambiente de simulação orientado a eventos, a linha do tempo de uma simulação é representada por uma lista de eventos, em que cada novo evento é inserido nesta lista. A posição em que cada evento é inserido nesta lista varia de acordo com o momento em que cada evento deve ocorrer.
+Para realização das simulações deste trabalho foi utilizado o simulador GRUBiX, que é um simulador \emph{open source} desenvolvimento na Universidade Federal de Lavras. Ele pode ser encontrado no endereço \footnote{\url{http://sourceforge.net/projects/grubix/}}. Este simulador é uma variação do projeto SHOX \cite{Lessmann:2008}. Assim como o SHOX, o simulador GRUBiX caracteriza-se como um ambiente de simulação orientado a eventos. De forma simplificada, em um ambiente de simulação orientado a eventos, a linha do tempo de uma simulação é representada por uma lista de eventos, em que cada novo evento é inserido nesta lista. A posição em que cada evento é inserido nesta lista varia de acordo com o momento em que cada evento deve ocorrer.
 
 Adicionalmente, estes simuladores oferece um conjunto de ferramentas para que se possa desenvolver toda a pilha de protocolos presente em um equipamento com rede sem fios. Essa disponibilidade permite que cada camada da pilha de protocolos seja personalizada de acordo com as necessidades de cada aplicação.
 

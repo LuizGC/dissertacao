@@ -37,18 +37,18 @@
 
 			\hline
 			\multicolumn{4}{|c|}{25 nós} \\ \hline
-			Alcance   & média aritmética &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	13,67 & 2,25 &	5,27  \\ \hline
-			15 metros &	19,45 & 1,71 &	3,31  \\ \hline
-			30 metros &	23,03 & 0,81 &	1,19 \\ \hline
+			Alcance   & média aritmética &	Desvio Padrão  \\ \hline
+			10 metros &	13,67 & 2,25  \\ \hline
+			15 metros &	19,45 & 1,71   \\ \hline
+			30 metros &	23,03 & 0,81  \\ \hline
 
 			\multicolumn{4}{|c|}{} \\ \hline
 
 			\multicolumn{4}{|c|}{50 nós} \\ \hline
-			Alcance   & média aritmética &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	15,96	& 1,41 & 2,25  \\ \hline
-			15 metros &	21,95	& 1,43 & 2,52  \\ \hline
-			30 metros &	23,48	& 1,12 & 1,80 \\ \hline
+			Alcance   & média aritmética &	Desvio Padrão \\ \hline
+			10 metros &	15,96	& 1,41   \\ \hline
+			15 metros &	21,95	& 1,43   \\ \hline
+			30 metros &	23,48	& 1,12  \\ \hline
 
 		\end{tabular}
 	    \end{minipage}%
@@ -57,19 +57,19 @@
 	        \begin{tabular}{|c|c|c|c|}
 	        \hline
 			\multicolumn{4}{|c|}{75 nós} \\ \hline
-			Alcance   & média aritmética &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	17,84 & 2,63 & 7,25  \\ \hline
-			15 metros &	23,44 & 2,33 & 5,97  \\ \hline
-			30 metros &	28,01 & 1,41 & 2,78 \\ \hline
+			Alcance   & média aritmética &	Desvio Padrão   \\ \hline
+			10 metros &	17,84 & 2,63   \\ \hline
+			15 metros &	23,44 & 2,33   \\ \hline
+			30 metros &	28,01 & 1,41  \\ \hline
 
 			\multicolumn{4}{|c|}{} \\ \hline
 
 
 			\multicolumn{4}{|c|}{100 nós} \\ \hline
-			Alcance   & média aritmética &	Desvio Padrão &	Variância  \\ \hline
-			10 metros &	18,40	& 2,86 & 8,52  \\ \hline
-			15 metros &	26,01	& 1,40 & 2,65  \\ \hline
-			30 metros &	33,48	& 1,10 & 2,33 \\ \hline
+			Alcance   & média aritmética &	Desvio Padrão   \\ \hline
+			10 metros &	18,40	& 2,86   \\ \hline
+			15 metros &	26,01	& 1,40   \\ \hline
+			30 metros &	33,48	& 1,10  \\ \hline
 
 		\end{tabular}
 
@@ -160,37 +160,4 @@ Quanto maior é a quantidade de veículos (nós) que formam a rede, maior é a p
 		\end{tabular}
 
 	    \end{minipage} 
-	\end{table}  
-
-
-\subsubsection{Comparando Redes com infraestrutura e Redes sem infraestrutura}
-
-Comparando o aumento da quantidade dos nós o agente permaneceu na região alvo em média um período 12,95\% maior na redes com infraestrutura. A Figura \ref{fig:comparacaoVariacaoNos} é foi obtida através das médias dos alcance dos nós. Com isso pode-se comparar o impacto da variação da quantidade de nós no desempenho do agente nos dois tipos de redes. 
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[scale=0.34]{resultados/graficos/comparacaoVariacaoNos.pdf}
-	\caption{Comparação do impacto da variação da quantidade de nós nos dois tipos de redes}
-	\label{fig:comparacaoVariacaoNos}
-\end{figure}  
-
-
-Para avaliar o impacto do raio de alcance do nó foi realizado a média do tempo que o agente permaneceu na região alvo nas diferentes configurações de densidade. Com o aumento do raio o agente permanceu na ragião alvo um tempo médio 12,95\% maior. A Figura \ref{fig:comparacaoVariacaoRaioAlcance} demonstra a comparação do tempo médio que o agente permaneceu na região alvo em relação ao raio de alcance.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[scale=0.34]{resultados/graficos/comparacaoVariacaoRaioAlcance.pdf}
-	\caption{Comparação do impacto da variação do raio de alcance nos dois tipos de redes.}
-	\label{fig:comparacaoVariacaoRaioAlcance}
-\end{figure}
-
-Na Figura \ref{fig:comparacaoMelhoriaComVariacaoRaioAlcance} pode-se observar um comportamento semelhante ao caso do aumento de nós. Com o aumento do raio de alcance do nó, aumenta a quantidade de veículos que o agente pode escolher como hospedeiro. Assim o agente tem mais chances de encontrar um veículo que passe na região alvo. Quanto maior o raio de alcance do nó, menor é o impacto da infraestrutura em relação a rede sem ela.
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[scale=0.34]{resultados/graficos/comparacaoMelhoriaComVariacaoRaioAlcance.pdf}
-	\caption{Melhoria da rede com infraestrutura em relação a rede sem infraestrutura com o aumento da quantidade de nós.}
-	\label{fig:comparacaoMelhoriaComVariacaoRaioAlcance}
-\end{figure}
-
-Observando os dois resultados, a infraestrutura auxilia o agente em chegar a região alvo até um limite de veículos e raio de alcance. Porém, em redes onde a densidade é alta e o raio também, a infraestrutura não promove um grande aumento de desempenho.
+	\end{table} 

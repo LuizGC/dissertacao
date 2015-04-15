@@ -50,7 +50,7 @@ public class CityMovement extends MovementManager {
 		return nextMoves;
 	}
 	
-	//envia de volta o agente com as informações do destino
+	//envia o agente com as informações do destino
 	public void sendCommand(Command c) {
 		if (c instanceof GetDestinationCommand) {
 			GetDestinationCommand command = (GetDestinationCommand) c;

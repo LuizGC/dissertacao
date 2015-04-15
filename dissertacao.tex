@@ -18,7 +18,7 @@
 \usepackage{booktabs}
 \usepackage{caption2}
 
-\usepackage[titletoc]{appendix}
+\usepackage[titletoc,toc,page]{appendix}
 \usepackage[portugues,ruled,lined]{algorithm2e}
 \usepackage{algorithmic}
 
@@ -165,7 +165,7 @@ Agradeço ao pessoal da GT4W por ter permitido que eu realiza-se o mestrado sem 
 
 \resumo{As redes veiculares \emph{ad hoc} (\emph{Vehicular Ad Hoc Networks} - VANETs) são redes com alta mobilidade onde veículos podem comunicar um com os outros ou com infraestrutura na estrada, como também podem transportar dados fisicamente de um ponto ao outro. O objetivo desse trabalho é analisar o desempenho de agentes de software em redes veiculares construídas utilizando a abordagem ad hoc e híbridas. Para analisar o desempenho das duas abordagens foram realizadas simulações utilizando o software Grubi e desenvolvido um protótipo baseado em kit com Arduíno e Zigbee. Os resultados demonstraram que os agentes apresentam desempenho melhor em redes híbridas do que em redes ad hoc.}
 
-\resumoingles{Vehicular Ad Hoc Networks - VANETs are networks with high mobility where vehicles can communicate with each other or with the road infrastructure , but can also carry data physically from one point to another. The aim of this study is to analyze the performance of software agents in vehicular networks built using ad hoc approach and hybrid . To analyze the performance of the two approaches simulations were performed using the software Grubi and developed a prototype -based kit with Arduino and Zigbee . The results showed that agents perform best in hybrid networks than in ad hoc networks.}
+\resumoingles{Vehicular Ad Hoc Networks - VANETs are networks with High Mobility Vehicles Where CAN COMMUNICATE hum with OS Other OU with Infrastructure on the road, How Also CAN Transport physically hum Data Point To Another . The objective of this work and analyze the software agents performance in vehicular networks constructed using a hybrid ad hoc and approach . To analyze the performance of the Two Approaches Were performed simulations using the software and Grubi Developed hum Prototype -based kit with Arduino and Zigbee . The results showed that the agents have better performance in hybrid networks do que in Ad hoc networks.}
 
 \listoffigures
 \listoftables
@@ -185,24 +185,27 @@ Agradeço ao pessoal da GT4W por ter permitido que eu realiza-se o mestrado sem 
 %inclui Referências Bibliográficas
 \bibliography{refbib}			% arquivo exemplo refbib.bib
 
-
+\renewcommand{\appendixtocname}{Anexos}
+\renewcommand{\appendixpagename}{Anexos}
    
 \newpage 
 
-\appendix
+\begin{appendices}
+  \chapter{Classe Java do Agente.}
+  \label{app:agente}
+  \input{anexo/agente}
 
-\section{Classe Java do Agente.}
-\label{app:agente}
-\input{anexo/agente}
-
-\section{Classe Java do modelo de comportamento do nó.}
-\label{app:comportamentoNo}
-\input{anexo/comportamento}
+  \chapter{Classe Java do modelo de comportamento do nó.}
+  \label{app:comportamentoNo}
+  \input{anexo/comportamento}
 
 
-\section{Classe Java do modelo de movimento}
-\label{app:movimento}
-\input{anexo/movimento}
+  \chapter{Classe Java do modelo de movimento}
+  \label{app:movimento}
+  \input{anexo/movimento}
+\end{appendices}
+
+
 
 %==============================================================================
 % Fim do texto

@@ -1,8 +1,8 @@
 \begin{lstlisting}
 
-public class TaxiLayer extends ApplicationLayer {
+public class VehicleLayer extends ApplicationLayer {
 
-	private Agent agent;
+	private Agent agent;//agente hospedado no veiculo
 	
 	public Agent getAgent(){
 		return this.agent;
@@ -13,19 +13,13 @@ public class TaxiLayer extends ApplicationLayer {
 	}
 
 
-	@Override
-	public int getPacketTypeCount() {
-		return 1;
-	}
-	
-	@Override
-	public void processEvent(TrafficGeneration tg) {
-	}
+
+
 
 	@Override
 	public void lowerSAP(Packet packet) throws LayerException {
 
-		if (packet.getSender() != sender) {
+		if (packet.getSender() != sender) {//enviar o agente
 			((PacketTask) packet).execute(this);
 		}
 		
@@ -36,7 +30,7 @@ public class TaxiLayer extends ApplicationLayer {
 			this.agent = new Agent(new TargetRegion());
 		}
 	
-		TargetRegionCheckerWUC wuc = new TargetRegionCheckerWUC(sender, 1000);
+		TargetRegionCheckerWUC wuc = new TargetRegionCheckerWUC(sender, 1000);//Verifica se o vehicle esta dentro da região alvo
 		this.sendEventSelf(wuc);
 	}
 
@@ -45,11 +39,11 @@ public class TaxiLayer extends ApplicationLayer {
 			GetStatistics.getInstance().generateStatistics();
 	}
 
-	public void processWakeUpCall(WakeUpCall wuc) {
+	public void processWakeUpCall(WakeUpCall wuc) {//ativa o vehicle
 		try{
-			if(!(wuc instanceof DecisionEvent) || this.getAgent() != null)
-				((WakeUpCallTask) wuc).execute(this);
-		}catch (Exception e) {
+			if(!(wuc instanceof DecisionEvent) || this.getAgent() != null)//verifica se tem agente
+				((WakeUpCallTask) wuc).execute(this);// executa as instruções do agente
+		}catch (Exception e) {//tratamento de erro quando o agente é perdido
 			System.out.println("Pacotes com problemas = " + wuc.getReceiver() + " qual o problema " + wuc.getClass().getCanonicalName());
 			e.printStackTrace();
 		}

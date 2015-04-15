@@ -8,7 +8,7 @@ public class CityMovement extends MovementManager {
 		super.initConfiguration(config);
 	}
 
-	//verifica se o veiculo chegou dentro da regiao alvo
+	/verifica se o veiculo chegou 
 	private boolean isNear (Position p1, Position p2) {
 		boolean result = false;
 		if (p1.equals(p2))
@@ -17,7 +17,6 @@ public class CityMovement extends MovementManager {
 		return result;
 	}
 	
-	//faz o veiculo se locomover
 	private Position interpolatedPosition(Position pinitial, Position pfinal){
 		double distance = pinitial.getDistance(pfinal);
 		double step = 5.0;
@@ -28,7 +27,6 @@ public class CityMovement extends MovementManager {
 		return new Position(newx, newy);
 	}
 	
-	//armazena os movimentos 
 	public final Collection<Movement> createMoves(Collection<Node> allNodes) {
 		Iterator<Node> iter = null;
 		iter = allNodes.iterator();
@@ -50,7 +48,6 @@ public class CityMovement extends MovementManager {
 		return nextMoves;
 	}
 	
-	//envia de volta o agente com as informações do destino
 	public void sendCommand(Command c) {
 		if (c instanceof GetDestinationCommand) {
 			GetDestinationCommand command = (GetDestinationCommand) c;

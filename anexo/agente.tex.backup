@@ -16,10 +16,10 @@ public class SoftwareAgent implements Agent{
 
 
 	@Override
-	public void execute(VehicleLayer vehicle) {//classe que executa as instrucoes no vehicle
+	public void execute(VehicleLayer vehicle) {
 		GetDestinationCommand command = new GetDestinationCommand(vehicle.getNode().getId().asInt());
-		command.send();//envia o comando para o vehicle enviar os agentes de suporte
-		if(vehicle.getAgent() == null)//se o vehicle nao tiver agente executa as instruções
+		command.send();
+		if(vehicle.getAgent() == null)
 			vehicle.sendEventSelf(new CollisionAvoidanceWUC(vehicle.getSender(), Math.random() * 5,
 				new ReturnDestinyPacket(vehicle.getSender(), this.getSender().getId(), command.getGPS(), vehicle.getNode().getPosition())));
 	}		
